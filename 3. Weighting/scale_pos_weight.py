@@ -16,7 +16,6 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_
 # ratio为训练集中负样本数与正样本数之间的比率
 ratio = sum(y_train==0) / sum(y_train==1)
 
-
 # 构造gmeans指标，等价于recall与specificity的几何平均
 def gmean_score(y_true, y_pred):
     recall = recall_score(y_true, y_pred)
