@@ -1,13 +1,13 @@
 - **Author：** 马肖
 - **E-Mail：** maxiaoscut@aliyun.com
 - **GitHub：**  https://github.com/Albertsr
-
 ---
+
 ## 一. Over-Sampling（过采样）
 ### 1. SMOTE
 - **论文：** [SMOTE：Synthetic Minority Over-sampling Technique](https://github.com/Albertsr/Class-Imbalance/blob/master/2.%20Sampling/Papers/SMOTE%EF%BC%9ASynthetic%20Minority%20Over-sampling%20Technique.pdf)
 - **算法流程**
-  - 对每一个少类样本计算其在少类样本集P中的k近邻集 (少类样本默认归类为正样本，大类样本归类为负样本，下同)
+  - 对每一个少类样本计算其在少类样本集P中的k近邻集 (少类样本默认为正样本，大类样本归类为负样本，下同)
   - 在上述k近邻集中随机选取一个样本x，通过**内插**方式生成新样本，公式如下：
   
     ![smote](https://github.com/Albertsr/Class-Imbalance/blob/master/2.%20Sampling/Pics/SMOTE.jpg)
@@ -27,16 +27,8 @@
 - **论文：** [Borderline-SMOTE A New Over-Sampling Method in Imbalanced Data Sets Learning](https://github.com/Albertsr/Class-Imbalance/blob/master/2.%20Sampling/Papers/Borderline-SMOTE%20A%20New%20Over-Sampling%20Method%20in%20Imbalanced%20Data%20Sets%20Learning.pdf)
 
 - **算法流程**
-  - 对少数类样本集`$P$`中的每一个正样本`$x_i$`计算其在**整个训练集**`$T$`上的`$m$`近邻集，其中负样本个数为`$m'$`，占比为`$r_i = m'/m$`
-  - **根据`$m$`近邻集内负样本的占比对正样本进行归类**
-    - 当`$r_i \in [0,  0.5)$` 时，m近邻中负样本占比较小，此时视`$x_i$`为安全点，无需处理
-    - 当`$r_i \in [0.5,  1)$` 时，m近邻中负样本占比较大，此时视`$x_i$`易被误分，将其放入`$DANGER$`集
-    - 当`$r_i = 1$`时，m近邻中所有样本为负样本，此时`$x_i$`为噪音，无需处理
-  - **生成新样本**
-    - 对DANGER集内的每个样本`$x_i$`，求其在**正样本集**`$P$`内的`$k$`近邻样本集
-    - 从上述`$k$`近邻样本集中选取`$s (s \leq k)$`个与`$x_i$`最近的样本`$\hat{x}_{ij} (j = 1,2,...s)$`，再根据下列公式生成新的样本：
-     
-      ![BordlineSMOTE](https://github.com/Albertsr/Class-Imbalance/blob/master/2.%20Sampling/Pics/BordlineSMOTE.jpg)
+
+   ![BordlineSMOTE1](https://github.com/Albertsr/Class-Imbalance/blob/master/2.%20Sampling/Pics/Bordline_SMOTE1.jpg)
     
 - **API**
   ```
@@ -96,6 +88,7 @@
   - **线性内插的应用条件：** `$sv_i^+$`在整个训练集T上的m邻域中**正样本占比高于0.5**
   - **线性外插的作用：** 朝负样本区域方向扩展正样本区域，推动决策边界更接近于理想位置
   - **外插公式：**
+  
     ![extrapolation](https://github.com/Albertsr/Class-Imbalance/blob/master/2.%20Sampling/Pics/extrapolation.jpg)
     
 - **线性内插**
