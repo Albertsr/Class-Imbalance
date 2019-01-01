@@ -8,6 +8,7 @@
 - **论文：** [SMOTE：Synthetic Minority Over-sampling Technique](https://github.com/Albertsr/Class-Imbalance/blob/master/2.%20Sampling/Papers/SMOTE%EF%BC%9ASynthetic%20Minority%20Over-sampling%20Technique.pdf)
 - **算法流程**
 
+  [SMOTE](https://github.com/Albertsr/Class-Imbalance/blob/master/2.%20Sampling/Pics/SMOTE.jpg)
 
 - **缺点：** 对所有少类样本一视同仁，没有重点关注邻近边界线的样本，使得分类器的性能增长有限
 
@@ -122,5 +123,3 @@
 - 图像从右至左的方向看，更易理解
  
   ![imbalance_angle](https://github.com/Albertsr/Class-Imbalance/blob/master/2.%20Sampling/Pics/imbalance%20ratio%26angle.jpg)
-
-
