@@ -68,9 +68,9 @@
   
     ![ADASYN_ratio](https://github.com/Albertsr/Class-Imbalance/blob/master/2.%20Sampling/Pics/ADASYN_ratio.jpg)
     
-    
   - **少数类样本集**`$P$`中的每一个样本`$x_i$`需要生成的新样本数：`$g_i = \hat{r_i} *G$`，其中G为需要合成的总样本数。
   - 根据内插公式生成新样本：
+  
     ![ADASYN](https://github.com/Albertsr/Class-Imbalance/blob/master/2.%20Sampling/Pics/ADASYN.jpg)
 
 - **算法特点**
@@ -103,17 +103,15 @@
   - **线性内插的应用条件：** `$sv_i^+$`在整个训练集T上的m邻域中**正样本占比不高于0.5**
   - **线性外插的作用：** 巩固现有决策边界
   - **内插公式：**
+  
       ![interpolation](https://github.com/Albertsr/Class-Imbalance/blob/master/2.%20Sampling/Pics/interpolation.jpg)
       
   - **与SMOTE的区别：** SMOTE随机挑选k近邻正样本进行内插，本方法根据向量nn[i]中距离sv由近及远的顺序依次生成新样本
 
 - **线性外插与内插示意图**
-
-    ![orientation](https://github.com/Albertsr/Class-Imbalance/blob/master/2.%20Sampling/Pics/orientation_%20hyperplane.jpg)
-
-     
-
-
+    
+    ![orientation_hyperplane](https://github.com/Albertsr/Class-Imbalance/blob/master/2.%20Sampling/Pics/orientation_%20hyperplane.jpg)
+  
 ---
 
 ## 二. UnderSampling(欠采样)
@@ -135,7 +133,7 @@
 #### 2.3 模型学习到的决策边界与理想边界之间角度偏离较大
 - **Fig. 1与Fig. 2的解读：**  欠采样改进了未采样时分离超平面更靠近正样本集的缺点，但是模型从负样本中学习到的关于分离超平面方向的信息减少了，使得分离超平面与理想超平面之间的方向偏离度变得更大；
 
-  ![偏离](EAC42FEE6F2743D28C7AAE44EFB7EC39)
+  ![orientation](https://github.com/Albertsr/Class-Imbalance/blob/master/2.%20Sampling/Pics/orientation_%20hyperplane.jpg)
 
 - **Fig. 3的解读：** 
 - 随着的欠采样的进行，样本的Imblace Ratio逐步下降，而模型生成的分离超平面与理想分离超平面的偏离程度衡量指标Angel却呈上升趋势
