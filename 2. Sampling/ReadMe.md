@@ -6,9 +6,8 @@
 ## 一. Over-Sampling（过采样）
 ### 1. SMOTE
 - **论文：** [SMOTE：Synthetic Minority Over-sampling Technique](https://github.com/Albertsr/Class-Imbalance/blob/master/2.%20Sampling/Papers/SMOTE%EF%BC%9ASynthetic%20Minority%20Over-sampling%20Technique.pdf)
-- **备注：** 少类样本默认归类为正样本，大类样本默认归类为负样本，下同；
 - **算法流程**
-  - 对每一个少类样本计算其在少类样本集P中的k近邻集
+  - 对每一个少类样本计算其在少类样本集P中的k近邻集 (少类样本默认归类为正样本，大类样本默认归类为负样本，下同)
   - 在上述k近邻集中随机选取一个样本x，通过**内插**方式生成新样本，公式如下：
   
     ![smote](https://github.com/Albertsr/Class-Imbalance/blob/master/2.%20Sampling/Pics/SMOTE.jpg)
