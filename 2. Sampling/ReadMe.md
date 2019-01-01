@@ -39,8 +39,8 @@
   
 #### 2.2 Borderline_SMOTE2
 - **算法流程**
-  - 对`$DANGER$`集内的每个样本`$x_i$`，求其在正样本集`$P$`、负样本集`$N$`内的`$k$`近邻样本集，记为：`$P'$`、`$N'$`
-  - 在`$P'$`、`$N'$` 内分别选取`$\alpha, 1-\alpha$`比例的样本点与`$x_i$`进行**线性内插**生成新的正样本。其中`$ \alpha>0.5$`，以保证新样本更偏向于正样本区域
+  
+  ![BordlineSMOTE2](https://github.com/Albertsr/Class-Imbalance/blob/master/2.%20Sampling/Pics/Bordline_SMOTE2.jpg)
 
 - **API**
   ```
@@ -54,14 +54,7 @@
 - **论文：** [ADASYN：Adaptive Synthetic Sampling Approach for Imbalanced Learning](https://github.com/Albertsr/Class-Imbalance/blob/master/2.%20Sampling/Papers/ADASYN%EF%BC%9AAdaptive%20Synthetic%20Sampling%20Approach%20for%20Imbalanced%20Learning.pdf)
 
 - **算法流程**
-  - 对**少数类样本集**`$P$`中的每一个样本`$x_i$`，计算其在**整个训练集**`$T$`中的`$k$`近邻样本集，其中负样本个数为`$k'$`
-  - 记`$r_i = k'/k$`，则`$r_i \in [0, 1], \ i=1, 2, 3...|P|$`，并将比例归一化
-  
-    ![ADASYN_ratio](https://github.com/Albertsr/Class-Imbalance/blob/master/2.%20Sampling/Pics/ADASYN_ratio.jpg)
-    
-  - **少数类样本集**`$P$`中的每一个样本`$x_i$`需要生成的新样本数：`$g_i = \hat{r_i} *G$`，其中G为需要合成的总样本数。
-  - 根据内插公式生成新样本：
-  
+
     ![ADASYN](https://github.com/Albertsr/Class-Imbalance/blob/master/2.%20Sampling/Pics/ADASYN.jpg)
 
 - **算法特点**
