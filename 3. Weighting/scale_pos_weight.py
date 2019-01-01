@@ -25,7 +25,7 @@ def gmean_score(y_true, y_pred):
 
 # 构造样本权重生成函数，fn_cost，fp_cost分别表示FN，FP的代价
 # 在风控领域，FN是指没有检测出欺诈交易，FP是指将正常交易误判为欺诈交易，因此FN的代价应大于FP的代价
-# 实际应用场景中，正样本为少数，因此用赋予更大的权重，即正负样本的权重应与它们被误分引致的代价成一定的比例关系
+# 实际应用场景中，正样本为少数，因此应赋予更大的权重，即正负样本的权重应与它们被误分引致的代价成一定的比例关系
 # the weights are in proportion to their corresponding misclassification costs
 def get_weight(fn_cost, fp_cost, y_train=y_train):
     weight = [fn_cost if i == 1 else fp_cost for i in y_train]
