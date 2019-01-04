@@ -114,16 +114,16 @@
 
 #### 4.1 Charles Elkan明确指出Theroem 1既适用于Weighting，也适用于Sampling
 
-![权重法阐述](CD9A11945BD9493E99C09F45991E1654)
+![定理1适用于权重与采样](https://github.com/Albertsr/Class-Imbalance/blob/master/1.%20Cost%20Sensitive%20Learning/Pics/SubPics/%E5%AE%9A%E7%90%861%E9%80%82%E7%94%A8%E4%BA%8E%E6%9D%83%E9%87%8D%E4%B8%8E%E9%87%87%E6%A0%B7.jpg)
 
 #### 4.2 Chris Drummond明确指出，在二分类问题中，各类别的先验概率与误分代价可相互转换
-- 正样本的先验概率加倍，等价于`$C_{FN}$`加倍或`$C_{FP}$`减半
+- 正样本的先验概率加倍，等价于FN的代价加倍或FP的代价减半
    
-  ![加倍减半](A04F7B3928D84D91BAA1810738A7917E)
+  ![加倍减半](https://github.com/Albertsr/Class-Imbalance/blob/master/1.%20Cost%20Sensitive%20Learning/Pics/SubPics/interchangble.jpg)
  
 - 论文原文
 
-  ![先验概率与误分代价的转换](55D350D14559444E9CC88DC07ECBF1B0)
+  ![先验概率与误分代价的转换](https://github.com/Albertsr/Class-Imbalance/blob/master/1.%20Cost%20Sensitive%20Learning/Pics/SubPics/prior_cost_interchage.jpg)
  
 #### 4.3 理论分析
 - Charles Elkan 提出的Theroem 1证明了负样本在训练集中的占比与阈值之间的转换关系，并给出了严格的转换公式
