@@ -1,9 +1,11 @@
 - **Author：** 马肖
 - **E-Mail：** maxiaoscut@aliyun.com
-- **GitHub：**  https://github.com/Albertsr
+- **GitHub：** https://github.com/Albertsr
+
 ---
 
-## 1. 代价敏感与非代价敏感算法的区别
+## 第一部分：代价敏感综述
+### 1. 代价敏感与非代价敏感算法的区别
 
 #### 1.1 关键区别：
 - cost-sensitive Learning对不同的分类错误赋予不同的代价
