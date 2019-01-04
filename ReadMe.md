@@ -69,7 +69,7 @@
   
 - **非代价敏感算法的阈值一般设定为0.5，改变此阈值则间接实现了代价敏感学习 (模型需要能返回样本为正的后验概率)**
   
-  ![阈值与误分代价](https://github.com/Albertsr/Class-Imbalance/blob/master/1.%20Cost%20Sensitive%20Learning/Pics/%E9%98%88%E5%80%BC%E4%B8%8E%E8%AF%AF%E5%88%86%E4%BB%A3%E4%BB%B7%E7%9A%84%E5%85%B3%E7%B3%BB.jpg)
+  ![阈值与误分代价](https://github.com/Albertsr/Class-Imbalance/blob/master/1.%20Cost%20Sensitive%20Learning/Pics/threshold_cost.jpg)
     
 - **论文原文**
 
