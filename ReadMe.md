@@ -137,8 +137,13 @@
 
 ## 5. Reference
 
-论文一：
+- [The Foundations of Cost-Sensitive Learning](https://github.com/Albertsr/Class-Imbalance/blob/master/Papers/1.%20The%20Foundations%20of%20Cost-Sensitive%20Learning.pdf)
 
-论文二：
+- [Cost-Sensitive Learning and the Class Imbalance Problem](https://github.com/Albertsr/Class-Imbalance/blob/master/Papers/2.%20Cost-Sensitive%20Learning%20and%20the%20Class%20Imbalance%20Problem.pdf)
 
-论文三：
+- [Exploiting the Cost (In)sensitivity of Decision Tree Splitting Criteria](https://github.com/Albertsr/Class-Imbalance/blob/master/Papers/3.%20Exploiting%20the%20Cost%20(In)sensitivity%20of%20Decision%20Tree%20Splitting%20Criteria%20(Drummond2000).pdf)
+
+- [Cost-Sensitive Learning vs. Sampling: Which is Best for Handling Unbalanced
+Classes with Unequal Error Costs?](https://github.com/Albertsr/Class-Imbalance/blob/master/Papers/4.%20Cost-Sensitive%20Learning%20vs.%20Sampling.pdf)
+
+- [Analysis and Visualization of Classifier Performance_ Comparison under Imprecise Class and Cost Distributions](https://github.com/Albertsr/Class-Imbalance/blob/master/Papers/5.%20Analysis%20and%20Visualization%20of%20Classifier%20Performance_%20Comparison%20under%20Imprecise%20Class%20and%20Cost%20Distributions.pdf)
