@@ -62,29 +62,16 @@
 
 #### 1. 阈值、代价敏感学习
 - **多数情况下样本被正确分类的代价为0，因此阈值默认取**
-  ```math
-  p= \frac{C_{FP}}{C_{FP}+C_{FN}} 
-  ```
+  
+  ![阈值默认值](https://github.com/Albertsr/Class-Imbalance/blob/master/1.%20Cost%20Sensitive%20Learning/Pics/%E9%98%88%E5%80%BC%E9%BB%98%E8%AE%A4%E5%80%BC.jpg)
   
 - **非代价敏感算法的阈值一般设定为0.5，改变此阈值则间接实现了代价敏感学习 (模型需要能返回样本为正的后验概率)**
-
-  - 对于非代价敏感学习，阈值`$p=0.5$`
-    ```math
-    C_{FP}=C_{FN} \iff p= \frac{C_{FP}}{C_{FP}+C_{FN}}=0.5
-    ```
-    
-  - 当阈值`$p$`不等于0.5时，`$C_{FP}$`也将不再等于`$C_{FN}$`，即间接实现了代价敏感
-    ```math
-    C_{FP} \neq C_{FN} \iff p= \frac{C_{FP}}{C_{FP}+C_{FN}} \neq 0.5
-    ```
-    
-  - 阈值与误分代价有以下规律：
-    - 阈值越接近于0，`$C_{FN}$`越是大于`$C_{FP}$`
-    - 阈值越接近于1，`$C_{FN}$`越是小于`$C_{FP}$`
+  
+  ![阈值与误分代价](https://github.com/Albertsr/Class-Imbalance/blob/master/1.%20Cost%20Sensitive%20Learning/Pics/%E9%98%88%E5%80%BC%E4%B8%8E%E8%AF%AF%E5%88%86%E4%BB%A3%E4%BB%B7%E7%9A%84%E5%85%B3%E7%B3%BB.jpg)
     
 - **论文原文**
 
-  ![阈值法](66823150E0144D49AECB451EC7702EC3) 
+  ![阈值法](https://github.com/Albertsr/Class-Imbalance/blob/master/1.%20Cost%20Sensitive%20Learning/Pics/%E9%98%88%E5%80%BC%E6%B3%95.jpg) 
 
 ---
 
