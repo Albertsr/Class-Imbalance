@@ -85,11 +85,11 @@
 
 
 #### 2.2 定理解读
-- 定理含义：若阈值由`$p$`变为`$p'$`，则训练集中负样本的数量`$n$`应变为`$n'$`，且满足以下比例关系：
+- 定理含义：若阈值由p变为p'，则训练集中负样本的数量n应变为n'，且满足以下比例关系：
  
   ![比例关系1](https://github.com/Albertsr/Class-Imbalance/blob/master/1.%20Cost%20Sensitive%20Learning/Pics/SubPics/%E6%AF%94%E4%BE%8B%E5%85%B3%E7%B3%BB1.jpg)
 
-- 由上述比例关系式可知，**阈值的变化趋势与负样本数成反比关系：** 若n'>n，则必有p'<p
+- **阈值的变化趋势与负样本数成反比关系：** 若n'>n，则必有p'<p
 
  ![比例关系2](https://github.com/Albertsr/Class-Imbalance/blob/master/1.%20Cost%20Sensitive%20Learning/Pics/SubPics/%E6%AF%94%E4%BE%8B%E5%85%B3%E7%B3%BB2.jpg)
 
