@@ -147,3 +147,6 @@
 Classes with Unequal Error Costs?](https://github.com/Albertsr/Class-Imbalance/blob/master/Papers/4.%20Cost-Sensitive%20Learning%20vs.%20Sampling.pdf)
 
 - [Analysis and Visualization of Classifier Performance_ Comparison under Imprecise Class and Cost Distributions](https://github.com/Albertsr/Class-Imbalance/blob/master/Papers/5.%20Analysis%20and%20Visualization%20of%20Classifier%20Performance_%20Comparison%20under%20Imprecise%20Class%20and%20Cost%20Distributions.pdf)
+
+
+## 6. 经典论文《》的证明过程
