@@ -58,63 +58,104 @@
 
 ---
 
-## 4. Thresholding
-#### 4.1 **Thresholding**
-- 要求算法能返回后验概率预测值`$P(1|x)$`
-- 一般情况下，阈值设定为0.5，当样本取正的后验概率大于0.5时判定为正样本，否则判定为负样本
+## 第二部分：Thresholding、Sampling与Weighting的理论基础
+
+#### 1. 阈值、代价敏感学习
+- **多数情况下样本被正确分类的代价为0，因此阈值默认取**
+  ```math
+  p= \frac{C_{FP}}{C_{FP}+C_{FN}} 
+  ```
+  
+- **非代价敏感算法的阈值一般设定为0.5，改变此阈值则间接实现了代价敏感学习 (模型需要能返回样本为正的后验概率)**
+
+  - 对于非代价敏感学习，阈值`$p=0.5$`
+    ```math
+    C_{FP}=C_{FN} \iff p= \frac{C_{FP}}{C_{FP}+C_{FN}}=0.5
+    ```
+    
+  - 当阈值`$p$`不等于0.5时，`$C_{FP}$`也将不再等于`$C_{FN}$`，即间接实现了代价敏感
+    ```math
+    C_{FP} \neq C_{FN} \iff p= \frac{C_{FP}}{C_{FP}+C_{FN}} \neq 0.5
+    ```
+    
+  - 阈值与误分代价有以下规律：
+    - 阈值越接近于0，`$C_{FN}$`越是大于`$C_{FP}$`
+    - 阈值越接近于1，`$C_{FN}$`越是小于`$C_{FP}$`
+    
+- **论文原文**
+
+  ![阈值法](66823150E0144D49AECB451EC7702EC3) 
+
+---
+
+### 2. Sampling(采样法)、Thresholding(阈值法)之间的转换关系
+
+#### 2.1 Charles Elkan在论文《The Foundations of Cost-Sensitive Learning》中明确地提出了以下定理：
+
+ ![定理一](7E18D3F0E30442928B0DC3F2D161EF3B)
+
+
+#### 2.2 定理解读
+- 定理含义：若阈值由`$p$`变为`$p'$`，则训练集中负样本的数量`$n$`应变为`$n'$`，且满足以下比例关系：
+```math
+\frac{n'}{n}    
+= \frac{p}{1-p} \frac{1-p'}{p'}
+```
+- 由上述比例关系式可知，**阈值的变化趋势与负样本数成反比关系：** 若n'>n，则必有p'<p
+```math
+p'<p \iff \frac{p}{p'}>1,\ \frac{1-p'}{1-p}>1 
+\iff \frac{p}{1-p} \frac{1-p'}{p'} >1
+\iff n'>n 
+
+\text{注：可用反证法证明第二个相互推导关系}
+```
+
+- **Theroem 1严格论述了在二分类问题中，如何改变训练集中负样本的比例，使得非代价敏感算法学习到使得代价最小化的决策边界**
+
+  ![定理一阐述](937E7ACB15894582BA9807CCF556AD74)
+
+---
+## 3. Weighting等价于Sampling
+#### 3.1 **Weighting可以视为Sampling的一种，对于少类样本应赋予更高的权重**
+  - 样本的权重应与其被误分的代价成正比
+  - 高样本权重(大于1)可以视为对此样本的复制，从而Weighting可以视为Sampling的一种
+  - 对于风控领域，将欺诈交易判定为正常交易的代价更难以承受，因此`$C_{FN} > C_{FP}$`，若不改变阈值，则应对正样本进行过采样或赋予更高的权重
+
+#### 3.2 论文原文
+
+  ![weighting3](C5F616F979AC414DB6000E6A275492B6)
+
+---
+
+## 4. **Charles Elkan、Chris Drummond为Sampling、Weighting提供了理论基础**
+
+#### 4.1 Charles Elkan明确指出Theroem 1既适用于Weighting，也适用于Sampling
+
+![权重法阐述](CD9A11945BD9493E99C09F45991E1654)
+
+#### 4.2 Chris Drummond明确指出，在二分类问题中，各类别的先验概率与误分代价可相互转换
+- 正样本的先验概率加倍，等价于`$C_{FN}$`加倍或`$C_{FP}$`减半
+   
+  ![加倍减半](A04F7B3928D84D91BAA1810738A7917E)
  
-#### 4.2 理论基础：
+- 论文原文
 
-```math
-p^{*} = \frac{C_{FP}}{C_{FN}+C_{FP}}  \text{；此时$C_{TN}=C_{TP}=0$}
+  ![先验概率与误分代价的转换](55D350D14559444E9CC88DC07ECBF1B0)
+ 
+#### 4.3 理论分析
+- Charles Elkan 提出的Theroem 1证明了负样本在训练集中的占比与阈值之间的转换关系，并给出了严格的转换公式
 
-\text{当设置$p^*<0.5$时, $C_{FN} > C_{FP}$, 从而实现了代价敏感算法}
-```
+- 由前面的分析可知，改变样本被判定为正样本的阈值，等价于改变FN与FP之间的代价比例关系
 
+- 在TP、TN的代价均为零的情况下，若阈值不再等于0.5，则非代价敏感学习将转化为代价敏感学习
 
----
-## 5. Sampling
-
-#### 5.1 理论基础
-- 通过**Sampling方法**再平衡训练集，可以使得threshold为0.5的非代价敏感算法等价于threshold=p*(p*小于0.5)的代价敏感算法。
-
-- **具体步骤**：保留所有正样本，对负样本进行欠采样，使得正负样本的比例保持为：
-```math
-P(1) C_{FN} : P(0) C_{FP}
-
-\text{其中$P(1)$<$P(0)$，分别为正负样本的先验概率，即各自在训练集中的占比}
-```
-![TH](70CD01DCF472430D8AF4279FF0BB9515)
-
-- **备注：**
-
-```math
-\frac{p^{*}}{1-p^{*}}=\frac{C_{FP}}{C_{FN}},\ 
-\text{而} p_0 = 0.5\text{时，} \frac{1-p_0}{p_0}=1
-\text{，因此}P(0) * \frac{p^{*}}{1-p^{*}} * \frac{1-p_0}{p_0} 
-= P(0) * \frac{C_{FP}}{C_{FN}} 
-
-\text{从而对负样本集进行欠采样后，正负样本的比例为：}
-P(1) C_{FN} : P(0) C_{FP}
-```
-
-
-- **调整正负样本的比例与调整误分代价比例是可置换的：**
-  - 正样本的占比加倍等价于`$C_{FN}$`加倍或`$C_{FP}$`减半
-  -  the prior probabilities and the costs are interchangeable: doubling p(1) has the same effect as doubling FN, or halving FP (Drummond and Holte, 2000). 
-
----
-#### 5.2 Weighting：权重法
-- 对样本设置高或低的权重分别可视为样本的复制与删减，分别类似于过采样与欠采样，因此**weighting也属于Sampling的范畴**
+- 所以，**Sampling（或Weighting）通过改变负样本在训练集中的占比，间接地改变了阈值，从而间接实现了代价敏感学习**
 ---
 
-#### 5.3 Costing：代价法
+## 5. Reference
 
-```math
-\text{对正样本以概率} \frac{C(j, i)}{Z} \text{进行抽样，其中}
-Z \geq max(C(j, i)) \text{ ，若} Z = max(C(j, i)) \text{则保留所有正样本；}
+论文一：
 
-\text{对负样本以概率} \frac{C_{FP}}{C_{FN}} \text{进行不放回的欠采样，再训练bagging算法的基学习器}
-```
-- 很显然，**Costing也属于Sampling的范畴**
----
+论文二：
+
+论文三：
