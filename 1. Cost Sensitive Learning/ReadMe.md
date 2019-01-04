@@ -24,12 +24,12 @@
 ![代价矩阵](https://github.com/Albertsr/Class-Imbalance/blob/master/1.%20Cost%20Sensitive%20Learning/Pics/cost%20matrix.jpg)
 
 
-#### 2.3 样本`$x$`被预测为正类的充要条件
+#### 2.3 样本x被预测为正类的充要条件
 - **期望代价**
 
   ![代价矩阵](https://github.com/Albertsr/Class-Imbalance/blob/master/1.%20Cost%20Sensitive%20Learning/Pics/%E6%9C%9F%E6%9C%9B%E4%BB%A3%E4%BB%B7.jpg)
 
-- **样本`$x$`被预测为正类的充要条件：被分类为正样本的期望代价更小**
+- **样本x被预测为正类的充要条件：被分类为正样本的期望代价更小**
  
  ![阈值推导](https://github.com/Albertsr/Class-Imbalance/blob/master/1.%20Cost%20Sensitive%20Learning/Pics/%E9%98%88%E5%80%BC%E6%8E%A8%E5%AF%BC.jpg)
 
@@ -54,10 +54,10 @@
     
 #### 3.3 分类结构图
      
-   ![cs](DBD95B5F1ED54C62BFFE4E1787218E12)
-
+   ![CSL结构图](https://github.com/Albertsr/Class-Imbalance/blob/master/1.%20Cost%20Sensitive%20Learning/Pics/CSL%E7%BB%93%E6%9E%84%E5%9B%BE.jpg)
 
 ---
+
 ## 4. Thresholding
 #### 4.1 **Thresholding**
 - 要求算法能返回后验概率预测值`$P(1|x)$`
