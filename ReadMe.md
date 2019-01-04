@@ -79,27 +79,21 @@
 
 #### 2.1 Charles Elkan在论文《The Foundations of Cost-Sensitive Learning》中明确地提出了以下定理：
 
- ![定理一](7E18D3F0E30442928B0DC3F2D161EF3B)
+ ![定理一](https://github.com/Albertsr/Class-Imbalance/blob/master/1.%20Cost%20Sensitive%20Learning/Pics/SubPics/%E5%AE%9A%E7%90%86%E4%B8%80.jpg)
 
 
 #### 2.2 定理解读
 - 定理含义：若阈值由`$p$`变为`$p'$`，则训练集中负样本的数量`$n$`应变为`$n'$`，且满足以下比例关系：
-```math
-\frac{n'}{n}    
-= \frac{p}{1-p} \frac{1-p'}{p'}
-```
-- 由上述比例关系式可知，**阈值的变化趋势与负样本数成反比关系：** 若n'>n，则必有p'<p
-```math
-p'<p \iff \frac{p}{p'}>1,\ \frac{1-p'}{1-p}>1 
-\iff \frac{p}{1-p} \frac{1-p'}{p'} >1
-\iff n'>n 
+ 
+  ![比例关系1](https://github.com/Albertsr/Class-Imbalance/blob/master/1.%20Cost%20Sensitive%20Learning/Pics/SubPics/%E6%AF%94%E4%BE%8B%E5%85%B3%E7%B3%BB1.jpg)
 
-\text{注：可用反证法证明第二个相互推导关系}
-```
+- 由上述比例关系式可知，**阈值的变化趋势与负样本数成反比关系：** 若n'>n，则必有p'<p
+
+ ![比例关系2](https://github.com/Albertsr/Class-Imbalance/blob/master/1.%20Cost%20Sensitive%20Learning/Pics/SubPics/%E6%AF%94%E4%BE%8B%E5%85%B3%E7%B3%BB2.jpg)
 
 - **Theroem 1严格论述了在二分类问题中，如何改变训练集中负样本的比例，使得非代价敏感算法学习到使得代价最小化的决策边界**
 
-  ![定理一阐述](937E7ACB15894582BA9807CCF556AD74)
+  ![定理一阐述](https://github.com/Albertsr/Class-Imbalance/blob/master/1.%20Cost%20Sensitive%20Learning/Pics/SubPics/%E5%AE%9A%E7%90%86%E4%B8%80%E9%98%90%E8%BF%B0.jpg)
 
 ---
 ## 3. Weighting等价于Sampling
@@ -110,7 +104,7 @@ p'<p \iff \frac{p}{p'}>1,\ \frac{1-p'}{1-p}>1
 
 #### 3.2 论文原文
 
-  ![weighting3](C5F616F979AC414DB6000E6A275492B6)
+  ![weighting3](https://github.com/Albertsr/Class-Imbalance/blob/master/1.%20Cost%20Sensitive%20Learning/Pics/SubPics/weighting.jpg)
 
 ---
 
