@@ -137,9 +137,23 @@
 - 在TP、TN的代价均为零的情况下，若阈值不再等于0.5，则非代价敏感学习将转化为代价敏感学习
 
 - 所以，**Sampling（或Weighting）通过改变负样本在训练集中的占比，间接地改变了阈值，从而间接实现了代价敏感学习**
+
 ---
 
-## 5. Reference
+## 5. 经典论文《The Foundations of Cost-Sensitive Learning》的定理证明过程
+- 作者与发表年份：
+- 主要结论：
+   - 定理一：
+   - 定理二：
+   - 定理三：
+- 证明过程：
+   - 
+   - 
+   -  
+   
+---
+
+## 6. Reference
 
 - [The Foundations of Cost-Sensitive Learning](https://github.com/Albertsr/Class-Imbalance/blob/master/Papers/1.%20The%20Foundations%20of%20Cost-Sensitive%20Learning.pdf)
 
@@ -151,7 +165,3 @@
 Classes with Unequal Error Costs?](https://github.com/Albertsr/Class-Imbalance/blob/master/Papers/4.%20Cost-Sensitive%20Learning%20vs.%20Sampling.pdf)
 
 - [Analysis and Visualization of Classifier Performance_ Comparison under Imprecise Class and Cost Distributions](https://github.com/Albertsr/Class-Imbalance/blob/master/Papers/5.%20Analysis%20and%20Visualization%20of%20Classifier%20Performance_%20Comparison%20under%20Imprecise%20Class%20and%20Cost%20Distributions.pdf)
-
----
-
-## 6. 经典论文《The Foundations of Cost-Sensitive Learning》的定理证明过程
