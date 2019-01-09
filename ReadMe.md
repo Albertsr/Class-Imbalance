@@ -62,7 +62,7 @@
 
 ## 第二部分：Thresholding、Sampling与Weighting的理论基础
 
-#### 1. 阈值、代价敏感学习
+### 1. 阈值、代价敏感学习
 - **多数情况下样本被正确分类的代价为0，因此阈值默认取**
   
   ![阈值默认值](https://github.com/Albertsr/Class-Imbalance/blob/master/1.%20Cost%20Sensitive%20Learning/Pics/%E9%98%88%E5%80%BC%E9%BB%98%E8%AE%A4%E5%80%BC.jpg)
@@ -79,12 +79,16 @@
 
 ### 2. Sampling(采样法)、Thresholding(阈值法)之间的转换关系
 
-#### 2.1 Charles Elkan在论文《The Foundations of Cost-Sensitive Learning》中明确地提出了以下定理：
+#### 2.1 常见的采样方法与性能对比
+-  [Sampling与数据合成技术](https://github.com/Albertsr/Class-Imbalance/blob/master/2.%20Sampling/ReadMe.md)
+-  [Oversampling contrast](https://github.com/Albertsr/Class-Imbalance/blob/master/2.%20Sampling/oversampling_contrast.py)
+
+#### 2.2 Charles Elkan在论文《The Foundations of Cost-Sensitive Learning》中明确地提出了以下定理：
 
  ![定理一](https://github.com/Albertsr/Class-Imbalance/blob/master/1.%20Cost%20Sensitive%20Learning/Pics/SubPics/%E5%AE%9A%E7%90%86%E4%B8%80.jpg)
 
 
-#### 2.2 定理解读
+#### 2.3 定理解读
 - 定理含义：若阈值由p变为p'，则训练集中负样本的数量n应变为n'，且满足以下比例关系：
  
   ![比例关系1](https://github.com/Albertsr/Class-Imbalance/blob/master/1.%20Cost%20Sensitive%20Learning/Pics/SubPics/%E6%AF%94%E4%BE%8B%E5%85%B3%E7%B3%BB1.jpg)
