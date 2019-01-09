@@ -106,7 +106,7 @@
 #### 3.1 **Weighting可以视为Sampling的一种，对于少类样本应赋予更高的权重**
   - 样本的权重应与其被误分的代价成正比
   - 高样本权重(大于1)可以视为对此样本的复制，从而Weighting可以视为Sampling的一种
-  - 对于风控领域，将欺诈交易判定为正常交易的代价更难以承受，因此`$C_{FN} > C_{FP}$`，若不改变阈值，则应对正样本进行过采样或赋予更高的权重
+  - 对于风控领域，将欺诈交易判定为正常交易的代价更难以承受，因此FN的低价应大于FP的代价，若不改变阈值，则应对正样本进行过采样或赋予更高的权重
 
 #### 3.2 论文原文
 
@@ -152,5 +152,6 @@ Classes with Unequal Error Costs?](https://github.com/Albertsr/Class-Imbalance/b
 
 - [Analysis and Visualization of Classifier Performance_ Comparison under Imprecise Class and Cost Distributions](https://github.com/Albertsr/Class-Imbalance/blob/master/Papers/5.%20Analysis%20and%20Visualization%20of%20Classifier%20Performance_%20Comparison%20under%20Imprecise%20Class%20and%20Cost%20Distributions.pdf)
 
+---
 
-## 6. 经典论文《》的证明过程
+## 6. 经典论文《The Foundations of Cost-Sensitive Learning》的定理证明过程
