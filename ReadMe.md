@@ -81,8 +81,14 @@
 
 #### 2.1 常见的采样方法与性能对比
 -  [Sampling与数据合成技术](https://github.com/Albertsr/Class-Imbalance/blob/master/2.%20Sampling/ReadMe.md)
--  [Oversampling contrast](https://github.com/Albertsr/Class-Imbalance/blob/master/2.%20Sampling/oversampling_contrast.py)
-
+-  [常见过采样（数据合成技术）的性能对比]
+    - [Python代码](https://github.com/Albertsr/Class-Imbalance/blob/master/2.%20Sampling/oversampling_contrast.py)
+    - 结论：BOS_SVM性能相对较佳
+      - BOS_SVM能根据正类支持向量周边的正样本密度来决定是内插还是外插来合成新的样本
+      - 而其他合成方法只采用了内插的方式来生成新的样本
+      
+      ![Oversample_contrast](https://github.com/Albertsr/Class-Imbalance/blob/master/2.%20Sampling/Pics/Oversample_contrast.jpg) 
+   
 #### 2.2 Charles Elkan在论文《The Foundations of Cost-Sensitive Learning》中明确地提出了以下定理：
 
  ![定理一](https://github.com/Albertsr/Class-Imbalance/blob/master/1.%20Cost%20Sensitive%20Learning/Pics/SubPics/%E5%AE%9A%E7%90%86%E4%B8%80.jpg)
