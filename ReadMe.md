@@ -78,24 +78,13 @@
 ---
 
 ### 2. Sampling(采样法)、Thresholding(阈值法)之间的转换关系
-
-#### 2.1 常见的采样方法与性能对比
--  [Sampling与数据合成技术](https://github.com/Albertsr/Class-Imbalance/blob/master/2.%20Sampling/ReadMe.md)
--  [常见过采样（数据合成技术）的性能对比]
-    - [Python代码](https://github.com/Albertsr/Class-Imbalance/blob/master/2.%20Sampling/oversampling_contrast.py)
-    - 结论：BOS_SVM性能相对较佳
-      - BOS_SVM能根据正类支持向量周边的正样本密度来决定是内插还是外插来合成新的样本
-      - 而其他合成方法只采用了内插的方式来生成新的样本
-      
-      ![Oversample_contrast](https://github.com/Albertsr/Class-Imbalance/blob/master/2.%20Sampling/Pics/Oversample_contrast.jpg) 
    
-#### 2.2 Charles Elkan在论文《The Foundations of Cost-Sensitive Learning》中明确地提出了以下定理：
+#### 2.1 Charles Elkan在论文《The Foundations of Cost-Sensitive Learning》中明确地提出了以下定理：
 
  ![定理一](https://github.com/Albertsr/Class-Imbalance/blob/master/1.%20Cost%20Sensitive%20Learning/Pics/SubPics/%E5%AE%9A%E7%90%86%E4%B8%80.jpg)
 
-
-#### 2.3 定理解读
-- 定理含义：若阈值由p变为p'，则训练集中负样本的数量n应变为n'，且满足以下比例关系：
+#### 2.2 定理解读
+- 定理含义：若阈值由p'变为p，则训练集中负样本的数量n'应变为n，且满足以下比例关系：
  
   ![比例关系1](https://github.com/Albertsr/Class-Imbalance/blob/master/1.%20Cost%20Sensitive%20Learning/Pics/SubPics/%E6%AF%94%E4%BE%8B%E5%85%B3%E7%B3%BB1.jpg)
 
@@ -107,7 +96,19 @@
 
   ![定理一阐述](https://github.com/Albertsr/Class-Imbalance/blob/master/1.%20Cost%20Sensitive%20Learning/Pics/SubPics/%E5%AE%9A%E7%90%86%E4%B8%80%E9%98%90%E8%BF%B0.jpg)
 
+#### 2.3 常见的采样方法与性能对比
+-  常见的过采样(BordlineSMOTE、ADASYN等)与欠采样方法
+   - [Sampling](https://github.com/Albertsr/Class-Imbalance/blob/master/2.%20Sampling/ReadMe.md)
+-  常见过采样（数据合成技术）的性能对比
+    - [Python代码](https://github.com/Albertsr/Class-Imbalance/blob/master/2.%20Sampling/oversampling_contrast.py)
+    - 结论：BOS_SVM性能相对较佳
+      - BOS_SVM能根据正类支持向量周边的正样本密度来决定是内插还是外插来合成新的样本
+      - 而其他合成方法只采用了内插的方式来生成新的样本
+      
+      ![Oversample_contrast](https://github.com/Albertsr/Class-Imbalance/blob/master/2.%20Sampling/Pics/Oversample_contrast.jpg) 
+
 ---
+
 ## 3. Weighting等价于Sampling
 #### 3.1 **Weighting可以视为Sampling的一种，对于少类样本应赋予更高的权重**
   - 样本的权重应与其被误分的代价成正比
