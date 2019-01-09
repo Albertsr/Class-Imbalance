@@ -97,13 +97,12 @@
   ![定理一阐述](https://github.com/Albertsr/Class-Imbalance/blob/master/1.%20Cost%20Sensitive%20Learning/Pics/SubPics/%E5%AE%9A%E7%90%86%E4%B8%80%E9%98%90%E8%BF%B0.jpg)
 
 #### 2.3 常见的采样方法与性能对比
--  常见的过采样(BordlineSMOTE、ADASYN等)与欠采样方法
-   - [Sampling](https://github.com/Albertsr/Class-Imbalance/blob/master/2.%20Sampling/ReadMe.md)
+-  常见的过采样(BordlineSMOTE、ADASYN等)与欠采样方法：[Sampling综述](https://github.com/Albertsr/Class-Imbalance/blob/master/2.%20Sampling/ReadMe.md)
 -  常见过采样（数据合成技术）的性能对比
-    - [Python代码](https://github.com/Albertsr/Class-Imbalance/blob/master/2.%20Sampling/oversampling_contrast.py)
-    - 结论：BOS_SVM性能相对较佳
-      - BOS_SVM能根据正类支持向量周边的正样本密度来决定是内插还是外插来合成新的样本
-      - 而其他合成方法只采用了内插的方式来生成新的样本
+   - Python代码: [oversampling_contrast](https://github.com/Albertsr/Class-Imbalance/blob/master/2.%20Sampling/oversampling_contrast.py)
+   - 初步结论：BOS_SVM性能相对较佳
+      - BOS_SVM能根据正类支持向量周边的正样本密度来决定是内插还是外插来合成新的样本，而其他合成方法只采用了内插的方式来生成新的样本
+      - 需要根据数据集的特点与模型性能评估指标灵活选择过采样方法
       
       ![Oversample_contrast](https://github.com/Albertsr/Class-Imbalance/blob/master/2.%20Sampling/Pics/Oversample_contrast.jpg) 
 
