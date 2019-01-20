@@ -18,6 +18,7 @@
 ![关键区别](https://github.com/Albertsr/Class-Imbalance/blob/master/1.%20Cost%20Sensitive%20Learning/Pics/CSL%E7%9A%84CIL%E7%9A%84%E5%8C%BA%E5%88%AB.jpg)
 
 ---
+
 ## 2. 基于代价矩阵的分类决策
 ### 2.1 在欺诈识别等业务场景：FN的代价大于FP的代价
 - FN是指没有识别出真实的欺诈交易，FP是指将正常交误判为欺诈交易。显然FN的代价大于FP的代价
@@ -79,52 +80,64 @@
 ---
 
 ## 2. Sampling(采样法)
-
 ### 2.1 Sampling(采样法)与Thresholding(阈值法)之间可相互转换
-   
+  
 - **Charles Elkan在论文[The Foundations of Cost-Sensitive Learning](https://github.com/Albertsr/Class-Imbalance/blob/master/Papers/1.%20The%20Foundations%20of%20Cost-Sensitive%20Learning.pdf)中明确地指出了阈值与负样本比例之间的转换关系**
 
  ![定理一](https://github.com/Albertsr/Class-Imbalance/blob/master/1.%20Cost%20Sensitive%20Learning/Pics/SubPics/%E5%AE%9A%E7%90%86%E4%B8%80.jpg)
  
-- **定理解读**
-  - **转换公式：** 设算法将样本推断为正样本的初始阈值为p'，为了达到目标阈值p，则训练集中负样本的数量应从初始值n'变为n，且满足以下比例关系：
+- **Theorem 1解读：** 设算法将样本推断为正样本的初始阈值为p'，为了达到目标阈值p，则训练集中负样本的数量应从初始值n'变为n，且满足以下比例关系：
  
     ![比例关系1](https://github.com/Albertsr/Class-Imbalance/blob/master/1.%20Cost%20Sensitive%20Learning/Pics/SubPics/threom1_math.jpg)
 
 - **阈值的变化趋势与负样本数成正比关系：为了达到更小的目标阈值，则应对负样本进行欠采样(Under Sampling)**
 
-- **Theroem 1严格论述了在二分类问题中，如何改变训练集中负样本的比例，使得非代价敏感算法学习到使得代价最小化的决策边界**
-
-  ![定理一阐述](https://github.com/Albertsr/Class-Imbalance/blob/master/1.%20Cost%20Sensitive%20Learning/Pics/SubPics/%E5%AE%9A%E7%90%86%E4%B8%80%E9%98%90%E8%BF%B0.jpg)
+- **Theorem 1为Sampling(采样法)提供了坚实理论基础:** 严格论述了在二分类问题中，如何改变训练集中负样本的比例，使得非代价敏感算法学习到代价最小化的决策边界
+   
+     ![定理一阐述](https://github.com/Albertsr/Class-Imbalance/blob/master/1.%20Cost%20Sensitive%20Learning/Pics/SubPics/%E5%AE%9A%E7%90%86%E4%B8%80%E9%98%90%E8%BF%B0.jpg)
+ 
 
 ### 2.2 过采样与欠采样
--  常见的过采样(BordlineSMOTE、ADASYN等)与欠采样方法：[Sampling综述](https://github.com/Albertsr/Class-Imbalance/blob/master/2.%20Sampling/ReadMe.md)
--  常见过采样（数据合成技术）的性能对比
+- **常见的过采样方法**
+    - [SMOTE](https://github.com/Albertsr/Class-Imbalance/tree/master/2.%20Sampling#1-smote)
+    - [Borderline_SMOTE](https://github.com/Albertsr/Class-Imbalance/tree/master/2.%20Sampling#2-borderline_smote)
+    - [ADASYN](https://github.com/Albertsr/Class-Imbalance/tree/master/2.%20Sampling#3-adasyn)
+    - [BOS：Borderline Over_Sampling](https://github.com/Albertsr/Class-Imbalance/tree/master/2.%20Sampling#4-bosborderline-over_sampling) **(基于正类支持向量的线性外插与内插)**
+    
+- **欠采样及其缺点：** 
+  - [UnderSampling(欠采样综述)](https://github.com/Albertsr/Class-Imbalance/tree/master/2.%20Sampling#二-undersampling欠采样)
+  - 欠抽样的缺点
+    - [欠采样可能会丢失有价值的样本](https://github.com/Albertsr/Class-Imbalance/tree/master/2.%20Sampling#22-欠采样可能会丢失有价值的样本)
+    - [模型学习到的决策边界与理想边界之间角度偏离较大](https://github.com/Albertsr/Class-Imbalance/tree/master/2.%20Sampling#23-模型学习到的决策边界与理想边界之间角度偏离较大)
+    
+    
+### 2.3 实证分析：过采样方法性能对比
+- **对比代码：** [oversampling_contrast.py](https://github.com/Albertsr/Class-Imbalance/blob/master/2.%20Sampling/oversampling_contrast.py)
 
-
-### 2.3 实证分析：过采样方法(数据合成技术)性能对比
-- Python代码: [oversampling_contrast](https://github.com/Albertsr/Class-Imbalance/blob/master/2.%20Sampling/oversampling_contrast.py)
-
-- 初步结论：BOS_SVM性能相对较佳
+- **初步结论：BOS_SVM性能相对较佳**
   - BOS_SVM能根据正类支持向量周边的正样本密度来决定是内插还是外插来合成新的样本，而其他合成方法只采用了内插的方式来生成新的样本
-  - 需要根据数据集的特点与模型性能评估指标灵活选择过采样方法
+  - 在实际运用中，需要根据数据集的特点、模型性能评估指标等多方面因素灵活选择过采样方法**
     
     ![Oversample_contrast](https://github.com/Albertsr/Class-Imbalance/blob/master/2.%20Sampling/Pics/Oversample_contrast.jpg) 
 
 ---
 
-## 3. Weighting等价于Sampling
-### 3.1 **Weighting可以视为Sampling的一种，对于少类样本应赋予更高的权重**
-  - 样本的权重应与其被误分的代价成正比
-  - 高样本权重(大于1)可以视为对此样本的复制，从而Weighting可以视为Sampling的一种
-  - **对于风控领域，将欺诈交易判定为正常交易的代价更难以承受，因此FN的低价应大于FP的代价，若不改变阈值，则应对正样本进行过采样或赋予更高的权重**
+## 3. Weighting(权重法)
+### 3.1 **Weighting等价于Sampling**
 
-### 3.2 Weighting的实现
-- [Weighting实现方法](https://github.com/Albertsr/Class-Imbalance/blob/master/3.%20Weighting/ReadMe.md)
+- 高样本权重(大于1)可以视为对样本的复制，即为Over_Sampling；低样本权重(小于1)可以视为对样本的删减，即为Under_Sampling
+- **样本的权重应与其被误分的代价成比：** 少类样本一般为正样本，FN的代价高于FP的代价；应用Weighting(权重法)时，应对正样本赋予更高的权重
 
-### 3.3 论文原文
+
+### 3.2 论文原文
 
   ![weighting3](https://github.com/Albertsr/Class-Imbalance/blob/master/1.%20Cost%20Sensitive%20Learning/Pics/SubPics/weighting.jpg)
+
+### 3.3 Weighting的实现
+- **sklearn为常见监督算法均提供了fit方法，利用其参数sample_weight实现：** [sample_weight方法](https://github.com/Albertsr/Class-Imbalance/tree/master/3.%20Weighting#1-运用fit方法)
+
+- **scale_pos_weight参数：** XGBoost与LightGBM不仅在fit方法中提供了sample_weight参数，还提供了[scale_pos_weight参数](https://github.com/Albertsr/Class-Imbalance/tree/master/3.%20Weighting#2-运用scale_pos_weight参数)
+  - **代码示例：** [scale_pos_weight.py](https://github.com/Albertsr/Class-Imbalance/blob/master/3.%20Weighting/scale_pos_weight.py)
 
 ---
 
