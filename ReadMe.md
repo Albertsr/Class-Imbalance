@@ -84,13 +84,11 @@
  ![定理一](https://github.com/Albertsr/Class-Imbalance/blob/master/1.%20Cost%20Sensitive%20Learning/Pics/SubPics/%E5%AE%9A%E7%90%86%E4%B8%80.jpg)
 
 #### 2.2 定理解读
-- 定理含义：若阈值由p'变为p，则训练集中负样本的数量n'应变为n，且满足以下比例关系：
+- **定理含义：** 设算法将样本推断为正样本的初始阈值为p'，为了达到目标阈值p，则训练集中负样本的数量应从初始值n'变为n，且满足以下比例关系：
  
-  ![比例关系1](https://github.com/Albertsr/Class-Imbalance/blob/master/1.%20Cost%20Sensitive%20Learning/Pics/SubPics/%E6%AF%94%E4%BE%8B%E5%85%B3%E7%B3%BB1.jpg)
+  ![比例关系1](https://github.com/Albertsr/Class-Imbalance/blob/master/1.%20Cost%20Sensitive%20Learning/Pics/SubPics/threom1_math.jpg)
 
-- **阈值的变化趋势与负样本数成反比关系：** 若n'>n，则必有p'<p
-
- ![比例关系2](https://github.com/Albertsr/Class-Imbalance/blob/master/1.%20Cost%20Sensitive%20Learning/Pics/SubPics/%E6%AF%94%E4%BE%8B%E5%85%B3%E7%B3%BB2.jpg)
+- **阈值的变化趋势与负样本数成正比关系：为了达到更小的目标阈值，则应对负样本进行欠采样(Under Sampling)**
 
 - **Theroem 1严格论述了在二分类问题中，如何改变训练集中负样本的比例，使得非代价敏感算法学习到使得代价最小化的决策边界**
 
