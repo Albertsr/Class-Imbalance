@@ -13,7 +13,7 @@
 
 ## 2. 运用scale_pos_weight参数
 ### 2.1 代码示例
-- [scale_pos_weight](https://github.com/Albertsr/Class-Imbalance/blob/master/3.%20Weighting/scale_pos_weight.py)
+- [scale_pos_weight.py](https://github.com/Albertsr/Class-Imbalance/blob/master/3.%20Weighting/scale_pos_weight.py)
 
 ### 2.2 XGBOOST
 
