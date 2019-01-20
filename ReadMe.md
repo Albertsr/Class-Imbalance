@@ -60,7 +60,7 @@
 
 ---
 
-# 第二部分：Thresholding、Sampling与Weighting的理论基础
+# 第二部分：Thresholding、Sampling与Weighting
 
 ## 1. Thresholding(阈值法)
 - **多数情况下样本被正确分类的代价为0，因此阈值默认取**
@@ -78,16 +78,18 @@
 
 ---
 
-## 2. Sampling(采样法)、Thresholding(阈值法)之间的转换关系
+## 2. Sampling(采样法)
+
+### 2.1 Sampling(采样法)与Thresholding(阈值法)之间可相互转换
    
-### 2.1 Charles Elkan在论文《The Foundations of Cost-Sensitive Learning》中明确地提出了以下定理：
+- **Charles Elkan在论文[The Foundations of Cost-Sensitive Learning](https://github.com/Albertsr/Class-Imbalance/blob/master/Papers/1.%20The%20Foundations%20of%20Cost-Sensitive%20Learning.pdf)中明确地指出了阈值与负样本比例之间的转换关系**
 
  ![定理一](https://github.com/Albertsr/Class-Imbalance/blob/master/1.%20Cost%20Sensitive%20Learning/Pics/SubPics/%E5%AE%9A%E7%90%86%E4%B8%80.jpg)
  
-### 2.2 定理解读
-- **定理含义：** 设算法将样本推断为正样本的初始阈值为p'，为了达到目标阈值p，则训练集中负样本的数量应从初始值n'变为n，且满足以下比例关系：
+- **定理解读**
+  - **转换公式：** 设算法将样本推断为正样本的初始阈值为p'，为了达到目标阈值p，则训练集中负样本的数量应从初始值n'变为n，且满足以下比例关系：
  
-  ![比例关系1](https://github.com/Albertsr/Class-Imbalance/blob/master/1.%20Cost%20Sensitive%20Learning/Pics/SubPics/threom1_math.jpg)
+    ![比例关系1](https://github.com/Albertsr/Class-Imbalance/blob/master/1.%20Cost%20Sensitive%20Learning/Pics/SubPics/threom1_math.jpg)
 
 - **阈值的变化趋势与负样本数成正比关系：为了达到更小的目标阈值，则应对负样本进行欠采样(Under Sampling)**
 
@@ -95,15 +97,19 @@
 
   ![定理一阐述](https://github.com/Albertsr/Class-Imbalance/blob/master/1.%20Cost%20Sensitive%20Learning/Pics/SubPics/%E5%AE%9A%E7%90%86%E4%B8%80%E9%98%90%E8%BF%B0.jpg)
 
-### 2.3 常见的采样方法与性能对比
+### 2.2 过采样与欠采样
 -  常见的过采样(BordlineSMOTE、ADASYN等)与欠采样方法：[Sampling综述](https://github.com/Albertsr/Class-Imbalance/blob/master/2.%20Sampling/ReadMe.md)
 -  常见过采样（数据合成技术）的性能对比
-   - Python代码: [oversampling_contrast](https://github.com/Albertsr/Class-Imbalance/blob/master/2.%20Sampling/oversampling_contrast.py)
-   - 初步结论：BOS_SVM性能相对较佳
-      - BOS_SVM能根据正类支持向量周边的正样本密度来决定是内插还是外插来合成新的样本，而其他合成方法只采用了内插的方式来生成新的样本
-      - 需要根据数据集的特点与模型性能评估指标灵活选择过采样方法
-      
-      ![Oversample_contrast](https://github.com/Albertsr/Class-Imbalance/blob/master/2.%20Sampling/Pics/Oversample_contrast.jpg) 
+
+
+### 2.3 实证分析：过采样方法(数据合成技术)性能对比
+- Python代码: [oversampling_contrast](https://github.com/Albertsr/Class-Imbalance/blob/master/2.%20Sampling/oversampling_contrast.py)
+
+- 初步结论：BOS_SVM性能相对较佳
+  - BOS_SVM能根据正类支持向量周边的正样本密度来决定是内插还是外插来合成新的样本，而其他合成方法只采用了内插的方式来生成新的样本
+  - 需要根据数据集的特点与模型性能评估指标灵活选择过采样方法
+    
+    ![Oversample_contrast](https://github.com/Albertsr/Class-Imbalance/blob/master/2.%20Sampling/Pics/Oversample_contrast.jpg) 
 
 ---
 
