@@ -7,7 +7,6 @@
 ## Weighting的实现方法
 ### 1. 运用fit方法
 - sklearn为常见监督算法均提供了fit方法，fit方法自带参数sample_weight
-- 代码示例
 - 如下图所示
 
   ![Weighting_fit](https://github.com/Albertsr/Class-Imbalance/blob/master/3.%20Weighting/Pics/Weighting_fit.jpg)
