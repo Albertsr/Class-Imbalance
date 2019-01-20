@@ -114,7 +114,10 @@
   - 高样本权重(大于1)可以视为对此样本的复制，从而Weighting可以视为Sampling的一种
   - **对于风控领域，将欺诈交易判定为正常交易的代价更难以承受，因此FN的低价应大于FP的代价，若不改变阈值，则应对正样本进行过采样或赋予更高的权重**
 
-#### 3.2 论文原文
+#### 3.2 Weighting的实现
+- [Weighting实现方法](https://github.com/Albertsr/Class-Imbalance/blob/master/3.%20Weighting/ReadMe.md)
+
+#### 3.3 论文原文
 
   ![weighting3](https://github.com/Albertsr/Class-Imbalance/blob/master/1.%20Cost%20Sensitive%20Learning/Pics/SubPics/weighting.jpg)
 
