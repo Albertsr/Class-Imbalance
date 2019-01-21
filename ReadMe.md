@@ -166,8 +166,27 @@
 
 ---
 
-## 5. 经典论文《The Foundations of Cost-Sensitive Learning》的定理证明过程
-### 5.1 主要结论
+## 5. Ensemble(集成法)
+
+### 5.1 论文
+- [Exploratory Undersampling for Class-Imbalance Learning](https://github.com/Albertsr/Class-Imbalance/blob/master/4.%20Ensemble%20Methods/Exploratory%20Undersampling%20for%20Class-Imbalance%20Learning.pdf)
+
+### 5.2 EasyEnsemble
+
+![easyensemble](https://github.com/Albertsr/Class-Imbalance/blob/master/4.%20Ensemble%20Methods/Pics/easyensemble.jpg)
+
+---
+
+### 5.3 BalanceCascade
+
+![balancecascade](https://github.com/Albertsr/Class-Imbalance/blob/master/4.%20Ensemble%20Methods/Pics/balancecascade.jpg)
+
+---
+
+# 第三部分：论文解读与Reference
+
+## 1. 经典论文《The Foundations of Cost-Sensitive Learning》解读
+### 1.1 主要结论
 - **Theorem 1：** 设算法将样本推断为正样本的初始阈值为p'，为了达到目标阈值p，则训练集中负样本的数量应从初始值n'变为n
   
   ![theorem1_math](https://github.com/Albertsr/Class-Imbalance/blob/master/1.%20Cost%20Sensitive%20Learning/Pics/SubPics/theorem1_math.jpg)
@@ -185,7 +204,7 @@
  ![theorem3](https://github.com/Albertsr/Class-Imbalance/blob/master/1.%20Cost%20Sensitive%20Learning/Pics/SubPics/theorem3.jpg)
 
 
-### 5.2 定理的证明
+### 1.2 定理的证明
 - **先证明Theorem 2**
 
 ![theorem2_proof](https://github.com/Albertsr/Class-Imbalance/blob/master/1.%20Cost%20Sensitive%20Learning/Pics/SubPics/theorem2_proof.jpg) 
@@ -200,7 +219,7 @@
 
 ---
 
-## 6. Reference
+## 2. Reference
 
 - [The Foundations of Cost-Sensitive Learning](https://github.com/Albertsr/Class-Imbalance/blob/master/Papers/1.%20The%20Foundations%20of%20Cost-Sensitive%20Learning.pdf)
 
