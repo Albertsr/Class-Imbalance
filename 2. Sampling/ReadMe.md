@@ -52,8 +52,15 @@
 - **论文：** [ADASYN：Adaptive Synthetic Sampling Approach for Imbalanced Learning](https://github.com/Albertsr/Class-Imbalance/blob/master/2.%20Sampling/Papers/ADASYN%EF%BC%9AAdaptive%20Synthetic%20Sampling%20Approach%20for%20Imbalanced%20Learning.pdf)
 
 - **算法流程**
+  - **对正样本集P中的每一个样本x，计算其在训练集中的k近邻样本集**
+  - **计算上述k近邻样本集内负样本的占比r，并将其归一化**
+    
+    ![adasyn_ratio](https://github.com/Albertsr/Class-Imbalance/blob/master/2.%20Sampling/Pics/adasyn_ratio.jpg)
 
-    ![ADASYN](https://github.com/Albertsr/Class-Imbalance/blob/master/2.%20Sampling/Pics/ADASYN.jpg)
+  - **根据上一步求得的比例计算每一个正样本需要合成的新样本数g，再根据内插公式合成新的正样本**
+    
+    ![adasyn_generate](https://github.com/Albertsr/Class-Imbalance/blob/master/2.%20Sampling/Pics/adasyn_generate.jpg)
+    
 
 - **算法特点**
   - 以少数类的密度作为标准来决定每个少数类样本需要合成的样本数，密度越大，需要生成的样本数越多
