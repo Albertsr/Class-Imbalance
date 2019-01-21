@@ -87,8 +87,8 @@
  ![定理一](https://github.com/Albertsr/Class-Imbalance/blob/master/1.%20Cost%20Sensitive%20Learning/Pics/SubPics/%E5%AE%9A%E7%90%86%E4%B8%80.jpg)
  
 - **Theorem 1解读：** 设算法将样本推断为正样本的初始阈值为p'，为了达到目标阈值p，则训练集中负样本的数量应从初始值n'变为n，且满足以下比例关系：
- 
-    ![比例关系1](https://github.com/Albertsr/Class-Imbalance/blob/master/1.%20Cost%20Sensitive%20Learning/Pics/SubPics/threom1_math.jpg)
+  
+  ![theorem1_math](https://github.com/Albertsr/Class-Imbalance/blob/master/1.%20Cost%20Sensitive%20Learning/Pics/SubPics/theorem1_math.jpg)
 
 - **阈值的变化趋势与负样本数成正比关系：为了达到更小的目标阈值，则应对负样本进行欠采样(Under Sampling)**
 
@@ -168,16 +168,36 @@
 ---
 
 ## 5. 经典论文《The Foundations of Cost-Sensitive Learning》的定理证明过程
-- 作者与发表年份：
-- 主要结论：
-   - 定理一：
-   - 定理二：
-   - 定理三：
-- 证明过程：
-   - 
-   - 
-   -  
-   
+### 5.1 主要结论
+**定理一：** 设算法将样本推断为正样本的初始阈值为p'，为了达到目标阈值p，则训练集中负样本的数量应从初始值n'变为n
+  
+  ![theorem1_math](https://github.com/Albertsr/Class-Imbalance/blob/master/1.%20Cost%20Sensitive%20Learning/Pics/SubPics/theorem1_math.jpg)
+
+- 若p<p'，则n<n'；若p>p'，则n>n'
+- **为了达到更小的目标阈值，则应对负样本进行欠采样(Under Sampling)**
+
+**定理二：** 若训练集中正类样本的先验概率由b变为b'，则从训练集中随机抽取的样本x为正样本的后验概率由p变为p'，其中
+  
+  ![theorem2_math](https://github.com/Albertsr/Class-Imbalance/blob/master/1.%20Cost%20Sensitive%20Learning/Pics/SubPics/theorem2_math.jpg)
+
+
+**定理三：** 对于二分类问题，若决策树的生成过程中以p(1-p)的平方根形式衡量数据集的不存度，则训练集中正、负样本的先验概率变化不影响决策树的结构；其中p为数据集中正样本的先验概率
+
+ ![theorem3](https://github.com/Albertsr/Class-Imbalance/blob/master/1.%20Cost%20Sensitive%20Learning/Pics/SubPics/theorem3.jpg)
+
+
+### 5.2 定理的证明
+- **Theorem 1的证明**
+
+![theorem1_proof!](https://github.com/Albertsr/Class-Imbalance/blob/master/1.%20Cost%20Sensitive%20Learning/Pics/SubPics/theorem1_proof.jpg)
+
+- **Theorem 2的证明** 
+  
+![theorem2_proof](https://github.com/Albertsr/Class-Imbalance/blob/master/1.%20Cost%20Sensitive%20Learning/Pics/SubPics/theorem2_proof.jpg) 
+
+- **Theorem 3的证明**
+  - 略；请查阅原论文；
+
 ---
 
 ## 6. Reference
