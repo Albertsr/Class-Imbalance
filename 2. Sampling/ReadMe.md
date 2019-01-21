@@ -83,7 +83,7 @@
       
   - **外插公式：** 
   
-    ![extrapolation](https://github.com/Albertsr/Class-Imbalance/blob/master/2.%20Sampling/Pics/extrapolation.jpg)
+    ![extra_math](https://github.com/Albertsr/Class-Imbalance/blob/master/2.%20Sampling/Pics/extra_math.jpg)
     
 - **线性内插(Interpolation)**
   - **应用条件：** 正类支持向量sv+在训练集T上的m邻域中**负样本占比高于0.5**
@@ -98,7 +98,7 @@
   
   - **内插公式：**
   
-      ![interpolation](https://github.com/Albertsr/Class-Imbalance/blob/master/2.%20Sampling/Pics/interpolation.jpg)
+      ![inter_math](https://github.com/Albertsr/Class-Imbalance/blob/master/2.%20Sampling/Pics/inter_math.jpg)
       
 - **线性外插与内插示意图**
     
