@@ -72,7 +72,7 @@
   
   ![阈值与误分代价](https://github.com/Albertsr/Class-Imbalance/blob/master/1.%20Cost%20Sensitive%20Learning/Pics/threshold_cost.jpg)
     
-- **论文对Thresholding的相关阐述**
+- **Thresholding的相关理论阐述**
   - 论文：[Cost-Sensitive Learning and the Class Imbalance Problem](https://github.com/Albertsr/Class-Imbalance/blob/master/Papers/2.%20Cost-Sensitive%20Learning%20and%20the%20Class%20Imbalance%20Problem.pdf)
   
   ![阈值法](https://github.com/Albertsr/Class-Imbalance/blob/master/1.%20Cost%20Sensitive%20Learning/Pics/%E9%98%88%E5%80%BC%E6%B3%95.jpg) 
@@ -115,8 +115,8 @@
 - **对比代码：** [oversampling_contrast.py](https://github.com/Albertsr/Class-Imbalance/blob/master/2.%20Sampling/oversampling_contrast.py)
 
 - **初步结论：BOS_SVM性能相对较佳**
-  - BOS_SVM能根据正类支持向量周边的正样本密度来决定是内插还是外插来合成新的样本，而其他合成方法只采用了内插的方式来生成新的样本
-  - 在实际运用中，需要根据数据集的特点、模型性能评估指标等多方面因素灵活选择过采样方法**
+  - **BOS_SVM能根据正类支持向量周边的正样本密度来决定是以内插(Interpolation)还是外插(Extrapolation)来合成新的样本**，而其他合成方法只采用了内插的方式来生成新的样本
+  - **在实际运用中，需要根据数据集的特点、模型性能评估指标等多方面因素灵活选择过采样方法**
     
     ![Oversample_contrast](https://github.com/Albertsr/Class-Imbalance/blob/master/2.%20Sampling/Pics/Oversample_contrast.jpg) 
 
