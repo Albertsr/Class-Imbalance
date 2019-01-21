@@ -72,7 +72,7 @@
 
 - **算法流程**
   - 设T为训练集，通过SVM找到其正类(即少数类)支持向量，记为sv+
-  - 对每个正类支持向量sv+在正样本集上找到其k近邻样本集，构成k维向量nn[i]
+  - 对每个正类支持向量sv+在正样本集上找到其k近邻样本集，构成样本子集nn (nearest neighbors的缩写)
   - 以**线性外插**或**线性内插**的方式合成新样本
     
     ![inter_extra_decription](https://github.com/Albertsr/Class-Imbalance/blob/master/2.%20Sampling/Pics/inter_extra_decription.jpg)
