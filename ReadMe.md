@@ -115,7 +115,8 @@
 - **对比代码：** [oversampling_contrast.py](https://github.com/Albertsr/Class-Imbalance/blob/master/2.%20Sampling/oversampling_contrast.py)
 
 - **初步结论：BOS_SVM性能相对较佳**
-  - **BOS_SVM能根据正类支持向量周边的正样本密度来决定是以内插(Interpolation)还是外插(Extrapolation)来合成新的样本**，而其他合成方法只采用了内插的方式来生成新的样本
+  - **BOS_SVM能根据正类支持向量(sv+)周边的负样本占比来灵活决定以内插(Interpolation)或外插(Extrapolation)方式合成新样本**
+  - **若负样本占比高于0.5，则以内插(Interpolation)方式合成新的正样本，巩固现有决策边界；否则，以外插(Extrapolation)方式合成新的正样本，往负样本方向拓展决策边界**
   - **在实际运用中，需要根据数据集的特点、模型性能评估指标等多方面因素灵活选择过采样方法**
     
     ![Oversample_contrast](https://github.com/Albertsr/Class-Imbalance/blob/master/2.%20Sampling/Pics/Oversample_contrast.jpg) 
