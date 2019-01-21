@@ -114,12 +114,12 @@
 ### 2.3 实证分析：过采样方法性能对比
 - **对比代码：** [oversampling_contrast.py](https://github.com/Albertsr/Class-Imbalance/blob/master/2.%20Sampling/oversampling_contrast.py)
 
-- **初步结论：BOS_SVM性能相对较佳**
-  - **BOS_SVM能根据正类支持向量(sv+)周边的负样本占比来灵活决定以内插(Interpolation)或外插(Extrapolation)方式合成新样本**
-  - **若负样本占比高于0.5，则以内插(Interpolation)方式合成新的正样本，巩固现有决策边界；否则，以外插(Extrapolation)方式合成新的正样本，往负样本方向拓展决策边界**
-  - **在实际运用中，需要根据数据集的特点、模型性能评估指标等多方面因素灵活选择过采样方法**
+- **对比结论**
+  - **过采样算法的表现与具体的数据集、模型评估指标等多方面因素有关，不存在持续占优的过采样算法**
+  - **通常将少类样本视为正样本，所有过采样算法均有效地增加了正样本的数量，对Recall均有明显提升作用**
+  - **BOS_SVM能灵活地选择内插或外插方式，生成的新样本更具合理性，有助于提升分类器的综合表现，AUC、G_Mean等指标也证明了此结论**
     
-    ![Oversample_contrast](https://github.com/Albertsr/Class-Imbalance/blob/master/2.%20Sampling/Pics/Oversample_contrast.jpg) 
+    ![oversample_contrast](https://github.com/Albertsr/Class-Imbalance/blob/master/2.%20Sampling/Pics/over_sample_contrast.jpg) 
 
 ---
 
