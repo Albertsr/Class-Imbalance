@@ -11,7 +11,9 @@ import numpy as np
 from sklearn.metrics import confusion_matrix
 
 def weighted_coverage(y_true, y_prob, thresholds_num=500):    
-    # 根据阈值个数(thresholds_num)生成一系列阈值
+    # 根据阈值个数(thresholds_num)生成一系列阈值，默认取500
+    # thresholds_num越大，最终返回的加权覆盖率越精准，但计算时长也更久
+    # 经过实证分析得知，thresholds_num即使增加至百万级，最终返回的加权覆盖率差别也在0.01之内
     thresholds = np.linspace(np.min(y_prob), np.max(y_prob), thresholds_num)
     
     # get_tpr_fpr根据给定的阈值，返回TPR、FPR
