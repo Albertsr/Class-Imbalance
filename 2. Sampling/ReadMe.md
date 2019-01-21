@@ -93,7 +93,7 @@
 
 - **线性外插与内插示意图**
     
-    ![orientation_hyperplane](https://github.com/Albertsr/Class-Imbalance/blob/master/2.%20Sampling/Pics/orientation_%20hyperplane.jpg)
+    ![inter_extra_polation](https://github.com/Albertsr/Class-Imbalance/blob/master/2.%20Sampling/Pics/inter_extra_polation.jpg)
   
 ---
 
