@@ -71,20 +71,26 @@
 - **论文：** [Borderline Over-sampling for Imbalanced Data Classification](https://github.com/Albertsr/Class-Imbalance/blob/master/2.%20Sampling/Papers/Borderline%20Over-sampling%20for%20Imbalanced%20Data%20Classification.pdf)
 
 - **算法流程**
-  - 设T为训练集，通过SVM找到其正类(即少数类)支持向量，记为`$sv^+$`
-  - 对每个支持向量`$sv_i^+$`在P集上找到其k近邻样本集，构成k维向量nn[i]
+  - 设T为训练集，通过SVM找到其正类(即少数类)支持向量，记为sv+
+  - 对每个正类支持向量sv+在正样本集上找到其k近邻样本集，构成k维向量nn[i]
   - 以**线性外插**或**线性内插**的方式合成新样本
 
-- **线性外插**
-  - **线性内插的应用条件：** `$sv_i^+$`在整个训练集T上的m邻域中**正样本占比高于0.5**
-  - **线性外插的作用：** 朝负样本区域方向扩展正样本区域，推动决策边界更接近于理想位置
-  - **外插公式：**
+- **线性外插(Extrapolation)**
+  - **应用条件：** 正类支持向量sv+在训练集T上的m邻域中**负样本占比小于0.5**
+  - **分析解读：** 往负样本方向合成新的正样本，扩展正样本区域，推动决策边界更接近于理想位置
+     
+     ![extrapolation_criteria](https://github.com/Albertsr/Class-Imbalance/blob/master/2.%20Sampling/Pics/extrapolation_criteria.jpg)
+      
+  - **外插公式：** 
   
     ![extrapolation](https://github.com/Albertsr/Class-Imbalance/blob/master/2.%20Sampling/Pics/extrapolation.jpg)
     
-- **线性内插**
-  - **线性内插的应用条件：** `$sv_i^+$`在整个训练集T上的m邻域中**正样本占比不高于0.5**
-  - **线性外插的作用：** 巩固现有决策边界
+- **线性内插(Interpolation)**
+  - **应用条件：** 正类支持向量sv+在训练集T上的m邻域中**负样本占比高于0.5**
+  - **分析解读：** 在正样本集内部合成新的正样本，巩固现有决策边界 (通俗地说，此时负样本密度较高，不应朝负类方向拓展，而是朝正类方向内守)
+     
+     ![interpolation_criteria](https://github.com/Albertsr/Class-Imbalance/blob/master/2.%20Sampling/Pics/interpolation_criteria.jpg)
+  
   - **内插公式：**
   
       ![interpolation](https://github.com/Albertsr/Class-Imbalance/blob/master/2.%20Sampling/Pics/interpolation.jpg)
