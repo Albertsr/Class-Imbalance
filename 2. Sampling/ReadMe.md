@@ -7,10 +7,12 @@
 ### 1. SMOTE
 - **论文：** [SMOTE：Synthetic Minority Over-sampling Technique](https://github.com/Albertsr/Class-Imbalance/blob/master/2.%20Sampling/Papers/SMOTE%EF%BC%9ASynthetic%20Minority%20Over-sampling%20Technique.pdf)
 - **算法流程**
+  - 对每一个正样本x计算其在正样本集P中的k近邻集
+  - 在上述k近邻集中随机选取一个样本，再通过**内插**方式生成新样本
+  
+  ![SMOTE](https://github.com/Albertsr/Class-Imbalance/blob/master/2.%20Sampling/Pics/smote.jpg)
 
-  ![SMOTE](https://github.com/Albertsr/Class-Imbalance/blob/master/2.%20Sampling/Pics/SMOTE.jpg)
-
-- **缺点：** 对所有少类样本一视同仁，没有重点关注邻近边界线的样本，使得分类器的性能增长有限
+- **缺点：** 对所有少类样本一视同仁，没有重点关注邻近决策边界的样本
 
 - **API**
   ```
