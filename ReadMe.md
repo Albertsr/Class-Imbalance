@@ -159,14 +159,10 @@
 
   ![先验概率与误分代价的转换](https://github.com/Albertsr/Class-Imbalance/blob/master/1.%20Cost%20Sensitive%20Learning/Pics/SubPics/prior_cost_interchage.jpg)
  
-### 4.3 理论分析
-- Charles Elkan 提出的Theroem 1证明了负样本在训练集中的占比与阈值之间的转换关系，并给出了严格的转换公式
-
-- 由前面的分析可知，改变样本被判定为正样本的阈值，等价于改变FN与FP之间的代价比例关系
-
-- 在TP、TN的代价均为零的情况下，若阈值不再等于0.5，则非代价敏感学习将转化为代价敏感学习
-
-- **Sampling（或Weighting）通过改变负样本在训练集中的占比，间接地改变了阈值，从而间接实现了代价敏感学习**
+### 4.3 理论小结
+- **Charles Elkan提出的Theroem 1论述了负样本在训练集中的占比与阈值之间的转换关系，并给出了严格的转换公式**
+- **在TP、TN的代价为0时，非代价敏感算法判定为正样本的后验概率阈值为0.5；若此阈值变更为[0, 1]区间内的其他值，则非代价敏感学习转化为代价敏感学习**
+- **Sampling（或Weighting）通过改变正、负样本在训练集中的占比，内生地改变了阈值，从而间接实现了代价敏感学习**
 
 ---
 
@@ -184,22 +180,22 @@
   ![theorem2_math](https://github.com/Albertsr/Class-Imbalance/blob/master/1.%20Cost%20Sensitive%20Learning/Pics/SubPics/theorem2_math.jpg)
 
 
-**定理三：** 对于二分类问题，若决策树的生成过程中以p(1-p)的平方根形式衡量数据集的不存度，则训练集中正、负样本的先验概率变化不影响决策树的结构；其中p为数据集中正样本的先验概率
+**定理三：** 对于二分类问题，若决策树的生成过程中以p(1-p)的平方根形式衡量数据集的不纯度，则训练集中正、负样本的先验概率变化不影响决策树的结构；其中p为数据集中正样本的先验概率
 
  ![theorem3](https://github.com/Albertsr/Class-Imbalance/blob/master/1.%20Cost%20Sensitive%20Learning/Pics/SubPics/theorem3.jpg)
 
 
 ### 5.2 定理的证明
-- **Theorem 1的证明**
+- **先证明Theorem 2**
 
 ![theorem1_proof!](https://github.com/Albertsr/Class-Imbalance/blob/master/1.%20Cost%20Sensitive%20Learning/Pics/SubPics/theorem1_proof.jpg)
 
-- **Theorem 2的证明** 
+- **再证明Theorem 1** 
   
 ![theorem2_proof](https://github.com/Albertsr/Class-Imbalance/blob/master/1.%20Cost%20Sensitive%20Learning/Pics/SubPics/theorem2_proof.jpg) 
 
 - **Theorem 3的证明**
-  - 略；请查阅原论文；
+  - 略，请查阅原论文；
 
 ---
 
