@@ -20,12 +20,11 @@
 ---
 
 ## 2. 基于代价矩阵的分类决策
-### 2.1 在欺诈识别等业务场景：FN的代价大于FP的代价
-- FN是指没有识别出真实的欺诈交易，FP是指将正常交误判为欺诈交易。显然FN的代价大于FP的代价
-
-### 2.2 代价矩阵的定义
+### 2.1 代价矩阵的定义
 ![代价矩阵](https://github.com/Albertsr/Class-Imbalance/blob/master/1.%20Cost%20Sensitive%20Learning/Pics/cost%20matrix.jpg)
 
+### 2.2 在欺诈识别等业务场景：FN的代价大于FP的代价
+- FN是指没有识别出真实的欺诈交易，FP是指将正常交误判为欺诈交易。显然FN的代价大于FP的代价
 
 ### 2.3 样本x被预测为正类的充要条件
 - **期望代价**
@@ -134,9 +133,13 @@
 - **样本的权重应与其被误分的代价成比：** 少类样本一般为正样本，FN的代价高于FP的代价；应用Weighting(权重法)时，应对正样本赋予更高的权重
 
 ### 3.2 Weighting的实现
-- **sklearn为常见监督算法均提供了fit方法，利用其参数sample_weight实现：** [sample_weight方法](https://github.com/Albertsr/Class-Imbalance/tree/master/3.%20Weighting#1-运用fit方法)
+- **运用fit方法中的sample_weight参数实现** 
+  - sklearn实现的监督算法、XGBoost、LightGBM均提供了fit方法，均含有sample_weight参数
+  - **以sklearn文档为例：** [参数sample_weight](https://github.com/Albertsr/Class-Imbalance/tree/master/3.%20Weighting#1-运用fit方法)
 
-- **scale_pos_weight参数：** XGBoost与LightGBM不仅提供了sample_weight参数，还提供了[scale_pos_weight参数](https://github.com/Albertsr/Class-Imbalance/tree/master/3.%20Weighting#2-运用scale_pos_weight参数)
+- **scale_pos_weight参数：** 
+  - XGBoost与LightGBM不仅提供了sample_weight参数，还提供了[scale_pos_weight参数](https://github.com/Albertsr/Class-Imbalance/tree/master/3.%20Weighting#2-运用scale_pos_weight参数)
+  - 若scale_pos_weight的取值设定为某常数ratio，则等价于将正样本权重设置为ratio，负样本的权重设置为1；
   - **代码示例：** [scale_pos_weight.py](https://github.com/Albertsr/Class-Imbalance/blob/master/3.%20Weighting/scale_pos_weight.py)
 
 ---
