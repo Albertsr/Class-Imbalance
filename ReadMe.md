@@ -136,7 +136,7 @@
 ### 3.2 Weighting的实现
 - **sklearn为常见监督算法均提供了fit方法，利用其参数sample_weight实现：** [sample_weight方法](https://github.com/Albertsr/Class-Imbalance/tree/master/3.%20Weighting#1-运用fit方法)
 
-- **scale_pos_weight参数：** XGBoost与LightGBM不仅在fit方法中提供了sample_weight参数，还提供了[scale_pos_weight参数](https://github.com/Albertsr/Class-Imbalance/tree/master/3.%20Weighting#2-运用scale_pos_weight参数)
+- **scale_pos_weight参数：** XGBoost与LightGBM不仅提供了sample_weight参数，还提供了[scale_pos_weight参数](https://github.com/Albertsr/Class-Imbalance/tree/master/3.%20Weighting#2-运用scale_pos_weight参数)
   - **代码示例：** [scale_pos_weight.py](https://github.com/Albertsr/Class-Imbalance/blob/master/3.%20Weighting/scale_pos_weight.py)
 
 ---
