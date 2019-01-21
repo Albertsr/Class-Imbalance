@@ -91,12 +91,15 @@
      
      ![interpolation_criteria](https://github.com/Albertsr/Class-Imbalance/blob/master/2.%20Sampling/Pics/interpolation_criteria.jpg)
   
+  - **与SMOTE的区别** 
+    - SMOTE随机挑选k邻域中的正样本，再内插合成新的正样本
+    - BOS_SVM优先选择k邻域中距离sv+最近的正样本，再内插合成新的正样本
+    - BOS_SVM内插合成新的正样本，是为了巩固决策边界，因此优先选择邻近决策边界的样本进行内插，否则"巩固"无从谈起
+  
   - **内插公式：**
   
       ![interpolation](https://github.com/Albertsr/Class-Imbalance/blob/master/2.%20Sampling/Pics/interpolation.jpg)
       
-  - **与SMOTE的区别：** SMOTE随机挑选k近邻正样本进行内插，本方法根据向量nn[i]中距离sv由近及远的顺序依次生成新样本
-
 - **线性外插与内插示意图**
     
     ![inter_extra_polation](https://github.com/Albertsr/Class-Imbalance/blob/master/2.%20Sampling/Pics/inter_extra_polation.jpg)
