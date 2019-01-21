@@ -188,11 +188,12 @@
 ### 5.2 定理的证明
 - **先证明Theorem 2**
 
-![theorem1_proof!](https://github.com/Albertsr/Class-Imbalance/blob/master/1.%20Cost%20Sensitive%20Learning/Pics/SubPics/theorem1_proof.jpg)
+![theorem2_proof](https://github.com/Albertsr/Class-Imbalance/blob/master/1.%20Cost%20Sensitive%20Learning/Pics/SubPics/theorem2_proof.jpg) 
+
 
 - **再证明Theorem 1** 
   
-![theorem2_proof](https://github.com/Albertsr/Class-Imbalance/blob/master/1.%20Cost%20Sensitive%20Learning/Pics/SubPics/theorem2_proof.jpg) 
+![theorem1_proof!](https://github.com/Albertsr/Class-Imbalance/blob/master/1.%20Cost%20Sensitive%20Learning/Pics/SubPics/theorem1_proof.jpg)
 
 - **Theorem 3的证明**
   - 略，请查阅原论文；
