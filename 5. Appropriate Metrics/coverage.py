@@ -7,8 +7,9 @@
 # TPR1：当FPR等于0.001时的TPR; TPR2：当FPR等于0.005时的TPR; TPR3：当FPR等于0.01时的TPR
 # 模型成绩 = 0.4 * TPR1 + 0.3 * TPR2 + 0.3 * TPR3
 
+
 import numpy as np
-from sklearn.metrics import confusion_matrix
+from sklearn.metrics import confusion_matrix, make_scorer
 
 def weighted_coverage(y_true, y_prob, thresholds_num=500):    
     # 根据阈值个数(thresholds_num)生成一系列阈值，默认取500
@@ -25,6 +26,7 @@ def weighted_coverage(y_true, y_prob, thresholds_num=500):
         return tpr, fpr
     
     # 根据不同的阈值生成对应的一系列TPR、FPR
+    # sklearn.metrics自带的roc_curve返回的tprs, fprs个数较少，最终的加权覆盖率不精准，不予采纳
     tprs, fprs = np.vectorize(get_tpr_fpr)(thresholds)    
     
     # min_delta_index返回与target_fpr最接近的阈值索引
@@ -41,3 +43,6 @@ def weighted_coverage(y_true, y_prob, thresholds_num=500):
     target_tprs = np.array([tprs[i] for i in min_indices])
     weights = [0.4, 0.3, 0.3]
     return np.dot(weights, target_tprs)
+
+# coverage_score可直接用于网格搜索scoring参数的取值
+coverage_score = make_scorer(weighted_coverage, greater_is_better=True, needs_proba=True) 
