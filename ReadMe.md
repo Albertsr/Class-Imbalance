@@ -113,14 +113,17 @@
 ### 2.3 实证分析：过采样方法性能对比
 - **对比代码：** [oversampling_contrast.py](https://github.com/Albertsr/Class-Imbalance/blob/master/2.%20Sampling/oversampling_contrast.py)
 
+- **对比结果：**
+
+  ![oversample_contrast](https://github.com/Albertsr/Class-Imbalance/blob/master/2.%20Sampling/Pics/over_sample_contrast.jpg) 
+
+
 - **对比结论**
   - **过采样算法的表现与具体的数据集、模型评估指标等多方面因素有关，不存在持续占优的过采样算法**
   - **通常将少类样本视为正样本，所有过采样算法均有效地增加了正样本的数量，对Recall均有明显提升作用**
   - **BOS_SVM能灵活地选择内插或外插方式，生成的新样本更具合理性，有助于提升分类器的综合表现，AUC、G_Mean等指标也证明了此结论**
   - **Coverage、G_Mean的定义：** [模型评估指标](https://github.com/Albertsr/Anomaly-Detection/blob/master/README.md#22-模型评估指标)
   
-    ![oversample_contrast](https://github.com/Albertsr/Class-Imbalance/blob/master/2.%20Sampling/Pics/over_sample_contrast.jpg) 
-
 ---
 
 ## 3. Weighting(权重法)
