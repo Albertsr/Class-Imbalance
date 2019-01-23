@@ -114,7 +114,8 @@
 - **对比代码：** [oversampling_contrast.py](https://github.com/Albertsr/Class-Imbalance/blob/master/2.%20Sampling/oversampling_contrast.py)
 
 - **对比结果：**
-
+  - **Coverage、G_Mean的定义：** [模型评估指标](https://github.com/Albertsr/Anomaly-Detection/blob/master/README.md#22-模型评估指标)
+  
   ![oversample_contrast](https://github.com/Albertsr/Class-Imbalance/blob/master/2.%20Sampling/Pics/over_sample_contrast.jpg) 
 
 
@@ -122,7 +123,6 @@
   - **过采样算法的表现与具体的数据集、模型评估指标等多方面因素有关，不存在持续占优的过采样算法**
   - **通常将少类样本视为正样本，所有过采样算法均有效地增加了正样本的数量，对Recall均有明显提升作用**
   - **BOS_SVM能灵活地选择内插或外插方式，生成的新样本更具合理性，有助于提升分类器的综合表现，AUC、G_Mean等指标也证明了此结论**
-  - **Coverage、G_Mean的定义：** [模型评估指标](https://github.com/Albertsr/Anomaly-Detection/blob/master/README.md#22-模型评估指标)
   
 ---
 
@@ -138,12 +138,12 @@
 ### 3.2 Weighting的实现
 - **运用fit方法中的sample_weight参数实现** 
   - sklearn实现的监督算法、XGBoost、LightGBM均提供了fit方法，均含有sample_weight参数
-  - **以sklearn文档为例：** [参数sample_weight](https://github.com/Albertsr/Class-Imbalance/tree/master/3.%20Weighting#1-运用fit方法)
+  - **以sklearn文档为例：** [fit方法中的参数sample_weightt](https://github.com/Albertsr/Class-Imbalance/tree/master/3.%20Weighting#1-运用fit方法中的参数sample_weight)
 
 - **scale_pos_weight参数：** 
   - XGBoost与LightGBM不仅提供了sample_weight参数，还提供了[scale_pos_weight参数](https://github.com/Albertsr/Class-Imbalance/tree/master/3.%20Weighting#2-运用scale_pos_weight参数)
   - 若scale_pos_weight的取值设定为某常数ratio，则等价于将正样本权重设置为ratio，负样本的权重设置为1；
-  - **代码示例：** [scale_pos_weight.py](https://github.com/Albertsr/Class-Imbalance/blob/master/3.%20Weighting/scale_pos_weight.py)
+  - **代码验证：** [scale_pos_weight.py](https://github.com/Albertsr/Class-Imbalance/blob/master/3.%20Weighting/scale_pos_weight.py)
 
 ---
 
