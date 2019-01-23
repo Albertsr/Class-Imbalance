@@ -44,5 +44,6 @@ def weighted_coverage(y_true, y_prob, thresholds_num=1000):
     weights = [0.4, 0.3, 0.3]
     return np.dot(weights, target_tprs)
 
-# coverage_score可直接用于网格搜索scoring参数的取值
+# 通过工厂函数make_scorer生成coverage_score，可直接用于网格搜索进行调参
+# 形如：sklearn.model_selection.GridSearchCV(estimator, param_grid, scoring=coverage_score）
 coverage_score = make_scorer(weighted_coverage, greater_is_better=True, needs_proba=True) 
