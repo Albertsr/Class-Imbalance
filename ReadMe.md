@@ -190,7 +190,7 @@
 
 ## 1. 经典论文《The Foundations of Cost-Sensitive Learning》解读
 ### 1.1 主要结论
-- **Theorem 1：** 设算法将样本推断为正样本的初始阈值为p'，为了达到目标阈值p，则训练集中负样本的数量应从初始值n'变为n
+- **Theorem 1：** 设算法将样本推断为正样本的初始阈值为p'，为了达到目标阈值p，则训练集中负样本的数量应从初始值n'变为n，且满足以下比例关系：
   
   ![theorem1_math](https://github.com/Albertsr/Class-Imbalance/blob/master/1.%20Cost%20Sensitive%20Learning/Pics/SubPics/theorem1_math.jpg)
 
