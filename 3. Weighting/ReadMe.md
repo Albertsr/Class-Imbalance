@@ -5,7 +5,7 @@
 ---
 
 ## Weighting的实现方法
-### 1. 运用fit方法中的参数sample_weight
+## 1. 运用fit方法中的参数sample_weight
 - sklearn为常见监督算法均提供了fit方法，fit方法自带参数sample_weight
 - 如下图所示
 
