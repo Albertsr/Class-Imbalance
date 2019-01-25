@@ -171,18 +171,20 @@
 
 ## 5. Ensemble(集成法)
 
-### 5.1 论文
-- [Exploratory Undersampling for Class-Imbalance Learning](https://github.com/Albertsr/Class-Imbalance/blob/master/4.%20Ensemble%20Methods/Exploratory%20Undersampling%20for%20Class-Imbalance%20Learning.pdf)
+### 5.1 AdaCost
+- **代码实现：** [adacost.py](https://github.com/Albertsr/Class-Imbalance/blob/master/4.%20Ensemble%20Methods/AdaCost/adacost.py)
 
-### 5.2 EasyEnsemble
+### 5.1 EasyEnsemble & BalanceCascade
+- **论文：** [Exploratory Undersampling for Class-Imbalance Learning](https://github.com/Albertsr/Class-Imbalance/blob/master/4.%20Ensemble%20Methods/Exploratory%20Undersampling%20for%20Class-Imbalance%20Learning.pdf)
 
-![easyensemble](https://github.com/Albertsr/Class-Imbalance/blob/master/4.%20Ensemble%20Methods/Pics/easyensemble.jpg)
+- **EasyEnsemble**
 
----
+   ![easyensemble](https://github.com/Albertsr/Class-Imbalance/blob/master/4.%20Ensemble%20Methods/Pics/easyensemble.jpg)
 
-### 5.3 BalanceCascade
 
-![balancecascade](https://github.com/Albertsr/Class-Imbalance/blob/master/4.%20Ensemble%20Methods/Pics/balancecascade.jpg)
+- **BalanceCascade**
+
+   ![balancecascade](https://github.com/Albertsr/Class-Imbalance/blob/master/4.%20Ensemble%20Methods/Pics/balancecascade.jpg)
 
 ---
 
