@@ -59,3 +59,5 @@
 ---
 
 ## 4. 经典论文《The Foundations of Cost-Sensitive Learning》总结
+
+- [《The Foundations of Cost-Sensitive Learning》解读](https://github.com/Albertsr/Class-Imbalance#第三部分论文解读与reference)
