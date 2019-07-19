@@ -140,11 +140,24 @@
   - sklearn实现的监督算法、XGBoost、LightGBM均提供了fit方法，均含有sample_weight参数
   - **以sklearn文档为例：** [fit方法中的参数sample_weightt](https://github.com/Albertsr/Class-Imbalance/tree/master/3.%20Weighting#1-运用fit方法中的参数sample_weight)
 
+     ![Weighting_fit](https://github.com/Albertsr/Class-Imbalance/blob/master/3.%20Weighting/Pics/Weighting_fit.jpg)
+
 - **scale_pos_weight参数：** 
   - XGBoost与LightGBM不仅提供了sample_weight参数，还提供了[scale_pos_weight参数](https://github.com/Albertsr/Class-Imbalance/tree/master/3.%20Weighting#2-运用scale_pos_weight参数)
+  
+  
+  - **XGBOOST相关文档**
+
+![xgb-scale](https://github.com/Albertsr/Class-Imbalance/blob/master/3.%20Weighting/Pics/xgb-scale.jpg)
+
+- **LightGBM相关文档**
+
+![lgb scale_pos](https://github.com/Albertsr/Class-Imbalance/blob/master/3.%20Weighting/Pics/lgb%20scale_pos.jpg)
+  
   - 若scale_pos_weight的取值设定为某常数ratio，则等价于将正样本权重设置为ratio，负样本的权重设置为1；
   - **代码验证：** [scale_pos_weight.py](https://github.com/Albertsr/Class-Imbalance/blob/master/3.%20Weighting/scale_pos_weight.py)
 
+  
 ---
 
 ## 4. **Charles Elkan、Chris Drummond为Sampling、Weighting提供了理论基础**
