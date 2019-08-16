@@ -13,8 +13,6 @@ from sklearn.metrics import confusion_matrix, make_scorer
 
 def weighted_coverage(y_true, y_prob, thresholds_num=1000):    
     # 根据阈值个数(thresholds_num)生成一系列阈值，默认取1000
-    # thresholds_num越大，最终返回的加权覆盖率越精准，但计算时长也更久
-    # 经过实证分析，即使阈值个数达到百万级，最终返回的加权覆盖率偏差不超过0.01
     thresholds = np.linspace(np.min(y_prob), np.max(y_prob), thresholds_num)
     
     # get_tpr_fpr根据给定的阈值，返回TPR、FPR
@@ -36,14 +34,9 @@ def weighted_coverage(y_true, y_prob, thresholds_num=1000):
     
     # 获取FPR与目标值0.001、0.005、0.01最接近时对应的索引
     target_fprs = [0.001, 0.005, 0.01]
-    min_indices = list(map(min_delta_index, target_fprs))
-    assert len(min_indices) == 3
+    min_indices = [min_delta_index(i) for i in target_fprs]
     
     # 根据目标索引获取对应的TPR
+    weights = np.array([0.4, 0.3, 0.3])
     target_tprs = np.array([tprs[i] for i in min_indices])
-    weights = [0.4, 0.3, 0.3]
     return np.dot(weights, target_tprs)
-
-# 通过工厂函数make_scorer生成coverage_score，可直接用于网格搜索进行调参
-# 形如：sklearn.model_selection.GridSearchCV(estimator, param_grid, scoring=coverage_score）
-coverage_score = make_scorer(weighted_coverage, greater_is_better=True, needs_proba=True) 
