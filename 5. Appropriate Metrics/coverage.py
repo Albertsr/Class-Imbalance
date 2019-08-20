@@ -12,7 +12,6 @@ import numpy as np
 from sklearn.metrics import confusion_matrix, make_scorer
 
 def weighted_coverage(y_true, y_prob, thresholds_num=1000):    
-    # 根据阈值个数(thresholds_num)生成一系列阈值，默认取1000
     thresholds = np.linspace(np.min(y_prob), np.max(y_prob), thresholds_num)
     
     # get_tpr_fpr根据给定的阈值，返回TPR、FPR
@@ -32,11 +31,10 @@ def weighted_coverage(y_true, y_prob, thresholds_num=1000):
         delta = np.array([np.abs(fpr - target_fpr) for fpr in fprs])
         return np.argmin(delta)
     
-    # 获取FPR与目标值0.001、0.005、0.01最接近时对应的索引
-    target_fprs = [0.001, 0.005, 0.01]
-    min_indices = [min_delta_index(i) for i in target_fprs]
+    # 获取FPR与目标值0.001、0.005、0.01最接近时对应的索引及其对应的TPR
+    min_indices = [min_delta_index(i) for i in [0.001, 0.005, 0.01]]
+    target_tprs = np.array([tprs[index] for index in min_indices])
     
-    # 根据目标索引获取对应的TPR
+    # 获取最终的加权TPR
     weights = np.array([0.4, 0.3, 0.3])
-    target_tprs = np.array([tprs[i] for i in min_indices])
     return np.dot(weights, target_tprs)
