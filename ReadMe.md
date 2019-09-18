@@ -237,7 +237,7 @@
 
 ---
 
-## 2. Reference
+## 2. References
 
 - [The Foundations of Cost-Sensitive Learning](https://github.com/Albertsr/Class-Imbalance/blob/master/Papers/1.%20The%20Foundations%20of%20Cost-Sensitive%20Learning.pdf)
 
