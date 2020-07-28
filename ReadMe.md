@@ -3,9 +3,7 @@
 - **GitHub：** https://github.com/Albertsr
 
 ---
-## 若图片无法正常显示， 请点击链接：
-
-[Class-Imbalance](https://note.youdao.com/ynoteshare1/index.html?id=bfd1d597b41c3645cda19efaed10b3d4&type=note)
+## 若图片无法正常显示， 请点击链接： [Class-Imbalance](https://note.youdao.com/ynoteshare1/index.html?id=bfd1d597b41c3645cda19efaed10b3d4&type=note)
 ---
 
 # 第一部分：代价敏感综述
