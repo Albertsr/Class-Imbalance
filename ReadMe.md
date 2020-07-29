@@ -2,9 +2,9 @@
 - **E-Mail：** maxiaoscut@aliyun.com
 - **GitHub：** https://github.com/Albertsr
 
----
-## 若图片无法正常显示， 请点击链接： [Class-Imbalance](https://note.youdao.com/ynoteshare1/index.html?id=bfd1d597b41c3645cda19efaed10b3d4&type=note)
+### 备注：若文档无法正常显示图片，请参考右方链接提供的解决方案，亲测有效： [github图片不显示的问题](https://zhuanlan.zhihu.com/p/107196957)
 
+---
 
 # 第一部分：代价敏感综述
 ## 1. 代价敏感与非代价敏感算法的区别
