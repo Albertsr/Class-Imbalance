@@ -118,6 +118,10 @@
 - **对比结果：**
   - **Coverage、G_Mean的定义：** [模型评估指标](https://github.com/Albertsr/Anomaly-Detection/blob/master/README.md#22-模型评估指标)
   
+    G_Mean = sqrt(Recall * Specificity)
+    
+    Coverage = 0.4 * TPR(FRP=0.001) + 0.3 * TPR(FRP=0.005) + 0.3 * TPR(FRP=0.01)
+     
   ![oversample_contrast](https://github.com/Albertsr/Class-Imbalance/blob/master/2.%20Sampling/Pics/over_sample_contrast.jpg) 
 
 
