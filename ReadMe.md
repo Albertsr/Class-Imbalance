@@ -20,7 +20,7 @@
 - cost-sensitive Learning对不同的分类错误赋予不同的代价
 - cost-insensitive Learning不区分不同分类的错误的代价
 
-### 1.2 算法目标不同
+#### 1.2 算法目标不同
 - cost-sensitive Learning以最小的代价为目标
 - cost-insensitive Learning以最小的分类误差为目标
 
@@ -28,14 +28,14 @@
 
 ---
 
-## 2. 基于代价矩阵的分类决策
-### 2.1 代价矩阵的定义
+### 2. 基于代价矩阵的分类决策
+#### 2.1 代价矩阵的定义
 ![代价矩阵](https://github.com/Albertsr/Class-Imbalance/blob/master/1.%20Cost%20Sensitive%20Learning/Pics/cost%20matrix.jpg)
 
-### 2.2 在欺诈识别等业务场景：FN的代价大于FP的代价
+#### 2.2 在欺诈识别等业务场景：FN的代价大于FP的代价
 - FN是指没有识别出真实的欺诈交易，FP是指将正常交误判为欺诈交易。显然FN的代价大于FP的代价
 
-### 2.3 样本x被预测为正类的充要条件
+#### 2.3 样本x被预测为正类的充要条件
 - **期望代价**
 
   ![代价矩阵](https://github.com/Albertsr/Class-Imbalance/blob/master/1.%20Cost%20Sensitive%20Learning/Pics/%E6%9C%9F%E6%9C%9B%E4%BB%A3%E4%BB%B7.jpg)
@@ -49,12 +49,12 @@
   ![阈值设定](https://github.com/Albertsr/Class-Imbalance/blob/master/1.%20Cost%20Sensitive%20Learning/Pics/%E9%98%88%E5%80%BC%E8%AE%BE%E5%AE%9A.jpg)
 ---
 
-## 3. 代价敏感算法的分类
-### 3.1 Direct methods（直接法） 
+### 3. 代价敏感算法的分类
+#### 3.1 Direct methods（直接法） 
 - **算法构建过程中就已考虑不同分类错误的代价**
 - incorporates the misclassification costs into the learning algorithm, to design classifiers that are cost-sensitive in themselves 
 
-### 3.2 Wrapper-based methods (封装法)
+#### 3.2 Wrapper-based methods (封装法)
 - **在不改变算法本身的情况下，将非代价敏感算法转化为代价敏感算法，也称为meta-learning method**
 
 - **主要分为两大类**
@@ -63,15 +63,15 @@
     - Weighting(权重法)
     - Costing
     
-### 3.3 分类结构图
+#### 3.3 分类结构图
      
    ![CSL结构图](https://github.com/Albertsr/Class-Imbalance/blob/master/1.%20Cost%20Sensitive%20Learning/Pics/CSL%E7%BB%93%E6%9E%84%E5%9B%BE.jpg)
 
 ---
 
-# 第二部分：Thresholding、Sampling与Weighting
+## 第二部分：Thresholding、Sampling与Weighting
 
-## 1. Thresholding(阈值法)
+### 1. Thresholding(阈值法)
 - **多数情况下样本被正确分类的代价为0，因此阈值默认取**
   
   ![阈值默认值](https://github.com/Albertsr/Class-Imbalance/blob/master/1.%20Cost%20Sensitive%20Learning/Pics/%E9%98%88%E5%80%BC%E9%BB%98%E8%AE%A4%E5%80%BC.jpg)
@@ -87,8 +87,8 @@
 
 ---
 
-## 2. Sampling(采样法)
-### 2.1 Sampling(采样法)与Thresholding(阈值法)之间可相互转换
+### 2. Sampling(采样法)
+#### 2.1 Sampling(采样法)与Thresholding(阈值法)之间可相互转换
   
 - **Charles Elkan在论文[The Foundations of Cost-Sensitive Learning](https://github.com/Albertsr/Class-Imbalance/blob/master/Papers/1.%20The%20Foundations%20of%20Cost-Sensitive%20Learning.pdf)中明确地指出了阈值与负样本比例之间的转换关系**
 
@@ -105,7 +105,7 @@
      ![定理一阐述](https://github.com/Albertsr/Class-Imbalance/blob/master/1.%20Cost%20Sensitive%20Learning/Pics/SubPics/%E5%AE%9A%E7%90%86%E4%B8%80%E9%98%90%E8%BF%B0.jpg)
  
 
-### 2.2 过采样与欠采样
+#### 2.2 过采样与欠采样
 - **常见的过采样方法**
     - [SMOTE](https://github.com/Albertsr/Class-Imbalance/tree/master/2.%20Sampling#1-smote)
     - [Borderline_SMOTE](https://github.com/Albertsr/Class-Imbalance/tree/master/2.%20Sampling#2-borderline_smote)
@@ -119,7 +119,7 @@
     - [模型学习到的决策边界与理想边界之间角度偏离较大](https://github.com/Albertsr/Class-Imbalance/tree/master/2.%20Sampling#23-模型学习到的决策边界与理想边界之间角度偏离较大)
     
     
-### 2.3 实证分析：过采样方法性能对比
+#### 2.3 实证分析：过采样方法性能对比
 - **对比代码：** [oversampling_contrast.py](https://github.com/Albertsr/Class-Imbalance/blob/master/2.%20Sampling/oversampling_contrast.py)
 
 - **对比结果：**
@@ -139,8 +139,8 @@
   
 ---
 
-## 3. Weighting(权重法)
-### 3.1 **Weighting等价于Sampling**
+### 3. Weighting(权重法)
+#### 3.1 **Weighting等价于Sampling**
 
 - **高样本权重(大于1)可以视为对样本的复制，即为Over_Sampling；低样本权重(小于1)可以视为对样本的删减，即为Under_Sampling**
 
@@ -148,7 +148,7 @@
 
 - **样本的权重应与其被误分的代价成比：** 少类样本一般为正样本，FN的代价高于FP的代价；应用Weighting(权重法)时，应对正样本赋予更高的权重
 
-### 3.2 Weighting的实现
+#### 3.2 Weighting的实现
 - **运用fit方法中的sample_weight参数实现** 
   - sklearn实现的监督算法、XGBoost、LightGBM均提供了fit方法，均含有sample_weight参数
   - **以sklearn文档为例：** [fit方法中的参数sample_weightt](https://github.com/Albertsr/Class-Imbalance/tree/master/3.%20Weighting#1-运用fit方法中的参数sample_weight)
@@ -173,13 +173,13 @@
   
 ---
 
-## 4. **Charles Elkan、Chris Drummond为Sampling、Weighting提供了理论基础**
+### 4. **Charles Elkan、Chris Drummond为Sampling、Weighting提供了理论基础**
 
-### 4.1 Charles Elkan明确指出Theroem 1既适用于Weighting，也适用于Sampling
+#### 4.1 Charles Elkan明确指出Theroem 1既适用于Weighting，也适用于Sampling
 
  ![定理1适用于权重与采样](https://github.com/Albertsr/Class-Imbalance/blob/master/1.%20Cost%20Sensitive%20Learning/Pics/SubPics/%E5%AE%9A%E7%90%861%E9%80%82%E7%94%A8%E4%BA%8E%E6%9D%83%E9%87%8D%E4%B8%8E%E9%87%87%E6%A0%B7.jpg)
 
-### 4.2 Chris Drummond明确指出，在二分类问题中，各类别的先验概率与误分代价可相互转换
+#### 4.2 Chris Drummond明确指出，在二分类问题中，各类别的先验概率与误分代价可相互转换
 - **正样本的先验概率加倍，等价于FN的代价加倍或FP的代价减半**
    
   ![加倍减半](https://github.com/Albertsr/Class-Imbalance/blob/master/1.%20Cost%20Sensitive%20Learning/Pics/SubPics/interchangble.jpg)
@@ -188,19 +188,19 @@
 
   ![先验概率与误分代价的转换](https://github.com/Albertsr/Class-Imbalance/blob/master/1.%20Cost%20Sensitive%20Learning/Pics/SubPics/prior_cost_interchage.jpg)
  
-### 4.3 理论小结
+#### 4.3 理论小结
 - **Charles Elkan提出的Theroem 1论述了负样本在训练集中的占比与阈值之间的转换关系，并给出了严格的转换公式**
 - **在TP、TN的代价为0时，非代价敏感算法判定为正样本的后验概率阈值为0.5；若此阈值变更为[0, 1]区间内的其他值，则非代价敏感学习转化为代价敏感学习**
 - **Sampling（或Weighting）通过改变正、负样本在训练集中的占比，内生地改变了阈值，从而间接实现了代价敏感学习**
 
 ---
 
-## 5. Ensemble(集成法)
+### 5. Ensemble(集成法)
 
-### 5.1 AdaCost
+#### 5.1 AdaCost
 - **代码实现：** [adacost.py](https://github.com/Albertsr/Class-Imbalance/blob/master/4.%20Ensemble%20Methods/AdaCost/adacost.py)
 
-### 5.1 EasyEnsemble & BalanceCascade
+#### 5.2 EasyEnsemble & BalanceCascade
 - **论文：** [Exploratory Undersampling for Class-Imbalance Learning](https://github.com/Albertsr/Class-Imbalance/blob/master/4.%20Ensemble%20Methods/Exploratory%20Undersampling%20for%20Class-Imbalance%20Learning.pdf)
 
 - **EasyEnsemble**
@@ -214,9 +214,8 @@
 
 ---
 
-# 第三部分：经典论文《The Foundations of Cost-Sensitive Learning》解读
+## 第三部分：经典论文《The Foundations of Cost-Sensitive Learning》解读
 
-## 1. 经典论文《The Foundations of Cost-Sensitive Learning》解读
 ### 1.1 主要结论
 - **Theorem 1：** 设算法将样本推断为正样本的初始阈值为p'，为了达到目标阈值p，则训练集中负样本的数量应从初始值n'变为n，且满足以下比例关系：
   
@@ -250,15 +249,15 @@
 
 ---
 
-##  Reference
+###  第四部分：参考文献
 
-- [The Foundations of Cost-Sensitive Learning](https://github.com/Albertsr/Class-Imbalance/blob/master/Papers/1.%20The%20Foundations%20of%20Cost-Sensitive%20Learning.pdf)
+- Paper_01: [The Foundations of Cost-Sensitive Learning [Charles Elkan]](http://cseweb.ucsd.edu/~elkan/rescale.pdf)
 
-- [Cost-Sensitive Learning and the Class Imbalance Problem](https://github.com/Albertsr/Class-Imbalance/blob/master/Papers/2.%20Cost-Sensitive%20Learning%20and%20the%20Class%20Imbalance%20Problem.pdf)
+- Paper_02: [Cost-Sensitive Learning and the Class Imbalance Problem [Charles X. Ling et.al.]](https://cling.csd.uwo.ca/papers/cost_sensitive.pdf)
 
-- [Exploiting the Cost (In)sensitivity of Decision Tree Splitting Criteria](https://github.com/Albertsr/Class-Imbalance/blob/master/Papers/3.%20Exploiting%20the%20Cost%20(In)sensitivity%20of%20Decision%20Tree%20Splitting%20Criteria%20(Drummond2000).pdf)
+- Paper_03: [Exploiting the Cost (In)sensitivity of Decision Tree Splitting Criteria [Drummond et.al.]](https://www.aaai.org/Papers/Workshops/2000/WS-00-05/WS00-05-009.pdf)
 
-- [Cost-Sensitive Learning vs. Sampling: Which is Best for Handling Unbalanced
-Classes with Unequal Error Costs?](https://github.com/Albertsr/Class-Imbalance/blob/master/Papers/4.%20Cost-Sensitive%20Learning%20vs.%20Sampling.pdf)
+- Paper_04: [Cost-Sensitive Learning vs. Sampling: Which is Best for Handling Unbalanced
+Classes with Unequal Error Costs? [Weiss et.al.]](https://storm.cis.fordham.edu/gweiss/papers/dmin07-weiss.pdf)
 
-- [Analysis and Visualization of Classifier Performance_ Comparison under Imprecise Class and Cost Distributions](https://github.com/Albertsr/Class-Imbalance/blob/master/Papers/5.%20Analysis%20and%20Visualization%20of%20Classifier%20Performance_%20Comparison%20under%20Imprecise%20Class%20and%20Cost%20Distributions.pdf)
+- Paper_05: [Analysis and Visualization of Classifier Performance_ Comparison under Imprecise Class and Cost Distributions [Provost et.al.]](https://www.aaai.org/Papers/KDD/1997/KDD97-007.pdf)
