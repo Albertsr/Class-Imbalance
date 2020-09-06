@@ -1,15 +1,22 @@
 - **Author：** MaXiao
 - **E-Mail：** maxiaoscut@aliyun.com
 - **GitHub：** https://github.com/Albertsr
-
-### 备注：若文档无法正常显示图片，请参考右方链接，亲测有效： [github图片不显示的问题](https://zhuanlan.zhihu.com/p/107196957)
+- **备注：** 若文档无法正常显示图片，请参考右方链接：[github图片不显示的问题](https://zhuanlan.zhihu.com/p/107196957)
 
 ---
 
-# 第一部分：代价敏感综述
-## 1. 代价敏感与非代价敏感算法的区别
+### 内容提纲
+- 代价敏感综述
+- Thresholding、Sampling与Weighting
+- 经典论文《The Foundations of Cost-Sensitive Learning》解读
+- 参考文献
 
-### 1.1 关键区别：
+---
+
+## 第一部分：代价敏感综述
+### 1. 代价敏感与非代价敏感算法的区别
+
+#### 1.1 关键区别：
 - cost-sensitive Learning对不同的分类错误赋予不同的代价
 - cost-insensitive Learning不区分不同分类的错误的代价
 
@@ -207,7 +214,7 @@
 
 ---
 
-# 第三部分：论文解读与Reference
+# 第三部分：经典论文《The Foundations of Cost-Sensitive Learning》解读
 
 ## 1. 经典论文《The Foundations of Cost-Sensitive Learning》解读
 ### 1.1 主要结论
@@ -243,7 +250,7 @@
 
 ---
 
-## 2. References
+##  Reference
 
 - [The Foundations of Cost-Sensitive Learning](https://github.com/Albertsr/Class-Imbalance/blob/master/Papers/1.%20The%20Foundations%20of%20Cost-Sensitive%20Learning.pdf)
 
