@@ -7,10 +7,10 @@
 ---
 
 ### 内容提纲
-- 第一部分：代价敏感综述
-- 第二部分：Thresholding、Sampling与Weighting
-- 第三部分：经典论文《The Foundations of Cost-Sensitive Learning》解读
-- 第四部分：参考文献
+- 第一部分：[代价敏感综述](https://github.com/Albertsr/Class-Imbalance#第一部分代价敏感综述)
+- 第二部分：[Thresholding、Sampling与Weighting](https://github.com/Albertsr/Class-Imbalance#第二部分thresholdingsampling与weighting)
+- 第三部分：[经典论文《The Foundations of Cost-Sensitive Learning [Charles Elkan]》解读](https://github.com/Albertsr/Class-Imbalance#第三部分经典论文the-foundations-of-cost-sensitive-learning解读)
+- 第四部分：[参考文献](https://github.com/Albertsr/Class-Imbalance#第四部分参考文献)
 
 ---
 
