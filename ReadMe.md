@@ -261,4 +261,6 @@
 - Paper_04: [Cost-Sensitive Learning vs. Sampling: Which is Best for Handling Unbalanced
 Classes with Unequal Error Costs? [Weiss et.al.]](https://storm.cis.fordham.edu/gweiss/papers/dmin07-weiss.pdf)
 
-- Paper_05: [Analysis and Visualization of Classifier Performance_ Comparison under Imprecise Class and Cost Distributions [Provost et.al.]](https://www.aaai.org/Papers/KDD/1997/KDD97-007.pdf)
+- Paper_05: [Exploratory Undersampling for Class-Imbalance Learning [Liu et.al.]](https://cs.nju.edu.cn/_upload/tpl/00/ed/237/template237/paper/icdm06-easyensemble-vfinal.pdf)
+
+- Paper_06: [Analysis and Visualization of Classifier Performance_ Comparison under Imprecise Class and Cost Distributions [Provost et.al.]](https://www.aaai.org/Papers/KDD/1997/KDD97-007.pdf)
