@@ -7,7 +7,8 @@
 # 模型成绩 = 0.4 * TPR1 + 0.3 * TPR2 + 0.3 * TPR3
 
 import numpy as np
-from sklearn.metrics import confusion_matrix, make_scorer
+from sklearn.metrics import confusion_matrix
+
 def weighted_coverage(y_true, y_prob):    
     fprs, tprs, thresholds = roc_curve(y_true, y_prob)
     
