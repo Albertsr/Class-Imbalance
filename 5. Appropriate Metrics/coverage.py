@@ -31,9 +31,8 @@ def weighted_coverage(y_true, y_prob, thresholds_num=1000):
         delta = np.array([np.abs(fpr - target_fpr) for fpr in fprs])
         return np.argmin(delta)
     
-    # 获取FPR与目标值0.001、0.005、0.01最接近时对应的索引及其对应的TPR
-    min_indices = [min_delta_index(i) for i in [0.001, 0.005, 0.01]]
-    target_tprs = np.array([tprs[index] for index in min_indices])
+    # 获取FPR与目标值0.001、0.005、0.01最接近时对应的TPR
+    target_tprs = [tprs[min_delta_index(target_fpr)] for target_fpr in (0.001, 0.005, 0.01)]
     
     # 获取最终的加权TPR
     weights = np.array([0.4, 0.3, 0.3])
