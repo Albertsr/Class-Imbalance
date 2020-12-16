@@ -2,9 +2,10 @@
 # E-mail：maxiaoscut@aliyun.com
 
 '''
-出处：蚂蚁金服-风险大脑-支付风险识别大赛(第一赛季) https://dc.cloud.alipay.com/index#/topic/data?id=4
-模型成绩 = 0.4 * TPR1 + 0.3 * TPR2 + 0.3 * TPR3
-TPR1：当FPR等于0.001时的TPR; TPR2：当FPR等于0.005时的TPR; TPR3：当FPR等于0.01时的TPR
+- 出处：蚂蚁金服-风险大脑-支付风险识别大赛(第一赛季)
+- https://dc.cloud.alipay.com/index#/topic/data?id=4
+- 模型成绩 = 0.4 * TPR1 + 0.3 * TPR2 + 0.3 * TPR3
+- TPR1：当FPR等于0.001时的TPR; TPR2：当FPR等于0.005时的TPR; TPR3：当FPR等于0.01时的TPR
 '''
 
 import numpy as np
