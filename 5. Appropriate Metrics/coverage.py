@@ -9,7 +9,7 @@
 '''
 
 import numpy as np
-from sklearn.metrics import confusion_matrix
+from sklearn.metrics import roc_curve
 
 def weighted_coverage(y_true, y_prob):    
     fprs, tprs, thresholds = roc_curve(y_true, y_prob)
@@ -19,6 +19,6 @@ def weighted_coverage(y_true, y_prob):
         delta = np.array([np.abs(fpr - target_fpr) for fpr in fprs])
         return np.argmin(delta)
     
-    target_tprs = [tprs[min_delta_index(target_fpr)] for target_fpr in (0.001, 0.005, 0.01)]
     weights = [0.4, 0.3, 0.3]
+    target_tprs = [tprs[min_delta_index(target_fpr)] for target_fpr in (0.001, 0.005, 0.01)]
     return np.dot(weights, target_tprs)
